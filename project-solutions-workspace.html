@@ -181,14 +181,11 @@
 <body>
     <!-- Navigation -->
     <nav class="navbar">
-        <div class="nav-container">
-            <div class="nav-brand">Keith Mistler</div>
-            <button class="hamburger" id="hamburger">
-                <span></span>
-                <span></span>
-                <span></span>
-            </button>
-            <ul class="nav-menu" id="nav-menu">
+        <div class="navbar-container">
+            <div class="navbar-logo">
+                <a href="index.html">Keith Mistler</a>
+            </div>
+            <ul class="nav-menu">
                 <li><a href="index.html" class="nav-link">Home</a></li>
                 <li><a href="index.html#work" class="nav-link">Work</a></li>
                 <li><a href="index.html#about" class="nav-link">About</a></li>
@@ -201,8 +198,8 @@
     <section class="project-hero">
         <div class="project-hero-content">
             <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 2rem;">
-                <a href="project-sales-planning.html" class="back-link">← Previous Project</a>
-                <a href="project-digital-publishing.html" class="back-link" style="text-align: right;">Next Project →</a>
+                <a href="index.html#work" class="back-link">← Back to Work</a>
+                <a href="project-phone-a-friend.html" class="back-link" style="text-align: right;">Next Project →</a>
             </div>
             <h1>Solutions Workspace Redesign</h1>
             <p style="font-size: 1.25rem; color: #666666; margin-top: 1rem;">Transforming Salesforce's single source of truth for 16,900+ sellers</p>
@@ -422,48 +419,20 @@
             <p><span class="highlight">Handoff is a design challenge too.</span> Passing specs to engineering isn't where design ends. That's where a new challenge begins. You need to understand how the engineering team actually works. What constraints they face. How they'll use what you've built. That knowledge changes how you write specs, document things, and structure your components.</p>
         </section>
     </div>
-  <section class="navigation-section">
-            <a href="project-sales-planning.html" class="back-link">← Previous Project</a>
-            <a href="project-digital-publishing.html" class="back-link" style="text-align: right;">Next Project →</a>
+
+        <section class="project-section" style="margin-top: 6rem; padding-top: 4rem; border-top: 1px solid #E9D5FF;">
+            <div style="display: flex; justify-content: space-between; align-items: center;">
+                <a href="index.html#work" class="back-link">← Back to Work</a>
+                <a href="project-phone-a-friend.html" class="back-link" style="text-align: right;">Next Project →</a>
+            </div>
         </section>
-       
     </div>
 
     <!-- Footer -->
     <footer class="footer">
         <div class="footer-content">
             <p>&copy; 2026 Keith Mistler. All rights reserved.</p>
-            <div class="footer-links">
-                <a href="index.html#work">Work</a>
-                <a href="index.html#about">About</a>
-                <a href="index.html#contact">Contact</a>
-            </div>
         </div>
     </footer>
-
-    <script>
-        const hamburger = document.getElementById('hamburger');
-        const navMenu = document.getElementById('nav-menu');
-        const navLinks = document.querySelectorAll('.nav-link');
-
-        hamburger.addEventListener('click', () => {
-            hamburger.classList.toggle('active');
-            navMenu.classList.toggle('active');
-        });
-
-        navLinks.forEach(link => {
-            link.addEventListener('click', () => {
-                hamburger.classList.remove('active');
-                navMenu.classList.remove('active');
-            });
-        });
-
-        document.addEventListener('click', (e) => {
-            if (!e.target.closest('.navbar')) {
-                hamburger.classList.remove('active');
-                navMenu.classList.remove('active');
-            }
-        });
-    </script>
 </body>
 </html>
