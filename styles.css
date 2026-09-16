@@ -207,6 +207,34 @@ img {
     color: var(--color-text);
 }
 
+/* Hamburger Menu */
+.hamburger {
+    display: none;
+    flex-direction: column;
+    cursor: pointer;
+    gap: 6px;
+}
+
+.hamburger span {
+    width: 25px;
+    height: 3px;
+    background-color: var(--color-text);
+    border-radius: 2px;
+    transition: all var(--transition-base);
+}
+
+.hamburger.active span:nth-child(1) {
+    transform: rotate(45deg) translate(8px, 8px);
+}
+
+.hamburger.active span:nth-child(2) {
+    opacity: 0;
+}
+
+.hamburger.active span:nth-child(3) {
+    transform: rotate(-45deg) translate(7px, -7px);
+}
+
 /* ============================================================================
    HERO SECTION
    ============================================================================ */
@@ -782,6 +810,30 @@ img {
     transform: scale(1.03);
 }
 
+@media (min-width: 481px) {
+    .hamburger {
+        display: none !important;
+    }
+
+    .nav-menu {
+        max-height: none !important;
+        position: static !important;
+        width: auto !important;
+        background-color: transparent !important;
+        border: none !important;
+        overflow: visible !important;
+    }
+
+    .nav-menu li {
+        border: none !important;
+    }
+
+    .nav-menu .nav-link {
+        display: inline !important;
+        padding: 0 !important;
+    }
+}
+
 @media (max-width: 768px) {
     .about-header h2 {
         font-size: var(--font-size-2xl);
@@ -1152,19 +1204,52 @@ img {
 
 @media (max-width: 480px) {
     .navbar-container {
-        flex-direction: column;
+        flex-direction: row;
         gap: var(--spacing-md);
+        justify-content: space-between;
+    }
+
+    .hamburger {
+        display: flex;
+    }
+
+    .nav-menu {
+        position: absolute;
+        top: 100%;
+        left: 0;
+        width: 100%;
+        background-color: #F9F5F1;
+        flex-direction: column;
+        gap: 0;
+        list-style: none;
+        max-height: 0;
+        overflow: hidden;
+        transition: max-height var(--transition-base);
+        border-bottom: 1px solid #E8D5D1;
+    }
+
+    .nav-menu.active {
+        max-height: 300px;
+    }
+
+    .nav-menu li {
+        border-bottom: 1px solid #E8D5D1;
+    }
+
+    .nav-menu li:last-child {
+        border-bottom: none;
+    }
+
+    .nav-menu .nav-link {
+        display: block;
+        padding: var(--spacing-md);
+        text-align: center;
+        color: var(--color-text-light);
     }
 
     .navbar-left {
         flex-direction: column;
         gap: var(--spacing-sm);
-    }
-
-    .nav-menu {
-        gap: var(--spacing-md);
-        flex-direction: column;
-        text-align: center;
     }
 
     .hero-title {
