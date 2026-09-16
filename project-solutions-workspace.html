@@ -198,7 +198,7 @@
     <section class="project-hero">
         <div class="project-hero-content">
             <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 2rem;">
-                <a href="index.html#work" class="back-link">← Back to Work</a>
+                <a href="project-digital-publishing.html" class="back-link">← Previous Project</a>
                 <a href="project-phone-a-friend.html" class="back-link" style="text-align: right;">Next Project →</a>
             </div>
             <h1>Solutions Workspace Redesign</h1>
@@ -418,21 +418,48 @@
             <h3 style="color: #1a1a1a;">What I Learned</h3>
             <p><span class="highlight">Handoff is a design challenge too.</span> Passing specs to engineering isn't where design ends. That's where a new challenge begins. You need to understand how the engineering team actually works. What constraints they face. How they'll use what you've built. That knowledge changes how you write specs, document things, and structure your components.</p>
         </section>
-    </div>
 
-        <section class="project-section" style="margin-top: 6rem; padding-top: 4rem; border-top: 1px solid #E9D5FF;">
-            <div style="display: flex; justify-content: space-between; align-items: center;">
-                <a href="index.html#work" class="back-link">← Back to Work</a>
-                <a href="project-phone-a-friend.html" class="back-link" style="text-align: right;">Next Project →</a>
-            </div>
-        </section>
+        <div style="margin-top: 6rem; padding-top: 4rem; border-top: 1px solid #E9D5FF; max-width: 900px; margin-left: auto; margin-right: auto; padding-left: 1.5rem; padding-right: 1.5rem; display: flex; justify-content: space-between; align-items: center; box-sizing: border-box;">
+            <a href="project-digital-publishing.html" class="back-link">← Previous Project</a>
+            <a href="project-phone-a-friend.html" class="back-link" style="text-align: right;">Next Project →</a>
+        </div>
     </div>
 
     <!-- Footer -->
     <footer class="footer">
         <div class="footer-content">
             <p>&copy; 2026 Keith Mistler. All rights reserved.</p>
+            <div class="footer-links">
+                <a href="index.html#work">Work</a>
+                <a href="index.html#about">About</a>
+                <a href="index.html#contact">Contact</a>
+            </div>
         </div>
     </footer>
+
+    <script>
+        const hamburger = document.getElementById('hamburger');
+        const navMenu = document.getElementById('nav-menu');
+        const navLinks = document.querySelectorAll('.nav-link');
+
+        hamburger.addEventListener('click', () => {
+            hamburger.classList.toggle('active');
+            navMenu.classList.toggle('active');
+        });
+
+        navLinks.forEach(link => {
+            link.addEventListener('click', () => {
+                hamburger.classList.remove('active');
+                navMenu.classList.remove('active');
+            });
+        });
+
+        document.addEventListener('click', (e) => {
+            if (!e.target.closest('.navbar')) {
+                hamburger.classList.remove('active');
+                navMenu.classList.remove('active');
+            }
+        });
+    </script>
 </body>
 </html>
