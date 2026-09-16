@@ -3,11 +3,12 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Sales Planning Research - Building trust and velocity in high-stakes AI planning">
+    <meta name="description" content="Sales Planning Research - How I built a global research initiative that shaped the roadmap">
     <title>Sales Planning Research | Keith Mistler - UX Designer</title>
     <link rel="icon" type="image/svg+xml" href="favicon.svg">
     <link rel="stylesheet" href="styles.css">
     <style>
+        /* Consistent Header */
         .project-hero {
             padding: 4rem 1.5rem;
             background-color: #f5f3f0;
@@ -50,29 +51,6 @@
             color: #1a1a1a;
         }
 
-        .project-content {
-            max-width: 900px;
-            margin: 0 auto;
-            padding: 4rem 1.5rem;
-        }
-
-        .project-section {
-            margin-bottom: 4rem;
-        }
-
-        .project-section h2 {
-            font-size: 1.875rem;
-            margin-bottom: 1.5rem;
-            font-family: Georgia, serif;
-        }
-
-        .project-section p {
-            font-size: 1rem;
-            line-height: 1.75;
-            color: #666666;
-            margin-bottom: 1.5rem;
-        }
-
         .back-link {
             display: inline-block;
             margin-bottom: 2rem;
@@ -85,53 +63,225 @@
             transform: translateX(-4px);
         }
 
-        .research-methodology {
+        /* Original Page Styling */
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', sans-serif;
+            background-color: #F9F5F1;
+            color: #666666;
+            line-height: 1.6;
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 60px 20px;
+        }
+
+        .project-content-wrapper {
+            margin: 0 auto;
+            padding: 4rem 0;
+        }
+
+        .section-header {
+            font-size: 2rem;
+            font-weight: 700;
+            color: #38204C;
+            margin-bottom: 20px;
+            font-family: Georgia, serif;
+            line-height: 1.3;
+        }
+
+        .section-subtitle {
+            font-size: 1.125rem;
+            color: #5D4670;
+            font-weight: 600;
+            margin-bottom: 15px;
+        }
+
+        .body-text {
+            font-size: 1rem;
+            color: #666666;
+            line-height: 1.8;
+            margin-bottom: 15px;
+        }
+
+        .highlight-box {
+            background-color: #FFF2E2;
+            border-left: 4px solid #7B5E8E;
+            padding: 24px;
+            border-radius: 8px;
+            margin: 20px 0;
+        }
+
+        .highlight-text {
+            font-weight: 600;
+            color: #38204C;
+            font-size: 1.125rem;
+        }
+
+        .image-container {
+            width: 100%;
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 12px 32px rgba(123, 94, 142, 0.15);
+            margin-bottom: 30px;
+        }
+
+        .image-container img {
+            width: 100%;
+            height: auto;
+            display: block;
+        }
+
+        /* Two Column Layout */
+        .content-grid {
             display: grid;
             grid-template-columns: 1fr 1fr;
-            gap: 2rem;
-            margin: 2rem 0;
+            gap: 60px;
+            align-items: start;
+            margin: 0 auto 80px auto;
+            max-width: 900px;
+            padding: 0 1.5rem;
+            box-sizing: border-box;
         }
 
-        .method-item {
-            padding: 2rem;
-            background-color: #f0f9ff;
-            border-radius: 8px;
-            border-left: 4px solid #8B5CF6;
+        .content-column {
+            display: flex;
+            flex-direction: column;
+            gap: 30px;
         }
 
-        .method-item h3 {
-            margin-bottom: 1rem;
+
+        /* Impact Section */
+        .impact-section {
+            margin: 0 auto 80px auto;
+            max-width: 900px;
+            padding: 0 1.5rem;
+            box-sizing: border-box;
         }
 
-        .key-insights {
-            background-color: #fdfbff;
-            padding: 2rem;
-            border-radius: 8px;
-            border-left: 4px solid #E85B9D;
-            margin: 2rem 0;
+        .impact-list {
+            list-style: none;
+            margin-top: 30px;
         }
 
-        .insight {
-            margin-bottom: 1.5rem;
-            padding-bottom: 1.5rem;
-            border-bottom: 1px solid #E9D5FF;
+        .impact-item {
+            padding: 20px 0;
+            padding-left: 30px;
+            position: relative;
+            border-bottom: 1px solid #E8D5D1;
         }
 
-        .insight:last-child {
-            margin-bottom: 0;
-            padding-bottom: 0;
+        .impact-item:last-child {
             border-bottom: none;
         }
 
-        .insight h4 {
-            color: #8B5CF6;
-            font-weight: 600;
-            margin-bottom: 0.5rem;
+        .impact-item::before {
+            content: "→";
+            position: absolute;
+            left: 0;
+            color: #7B5E8E;
+            font-weight: bold;
+            font-size: 1.25rem;
         }
 
+        .impact-title {
+            font-weight: 700;
+            color: #38204C;
+            margin-bottom: 8px;
+        }
+
+        .impact-description {
+            color: #888888;
+            font-size: 0.95rem;
+        }
+
+        /* What I Did Section */
+        .steps-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 30px;
+            margin: 30px auto 0 auto;
+            max-width: 900px;
+            padding: 0 1.5rem;
+            box-sizing: border-box;
+        }
+
+        .step-card {
+            background-color: #FFFFFF;
+            padding: 30px;
+            border-radius: 8px;
+            border: 2px solid #E8D5D1;
+            transition: all 0.3s ease;
+        }
+
+        .step-card:hover {
+            border-color: #7B5E8E;
+            box-shadow: 0 8px 24px rgba(123, 94, 142, 0.1);
+        }
+
+        .step-number {
+            display: inline-block;
+            background-color: #7B5E8E;
+            color: #FFFFFF;
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            text-align: center;
+            line-height: 40px;
+            font-weight: 700;
+            margin-bottom: 15px;
+        }
+
+        .step-title {
+            font-size: 1.125rem;
+            font-weight: 700;
+            color: #38204C;
+            margin-bottom: 10px;
+        }
+
+        .step-description {
+            font-size: 0.95rem;
+            color: #888888;
+            line-height: 1.6;
+        }
+
+        /* Navigation Section */
+        .navigation-section {
+            margin: 0 auto 80px auto;
+            max-width: 900px;
+            padding: 0 1.5rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            box-sizing: border-box;
+        }
+
+        /* Responsive */
         @media (max-width: 768px) {
-            .research-methodology {
+            .content-grid {
                 grid-template-columns: 1fr;
+                gap: 40px;
+            }
+
+            .steps-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .section-header {
+                font-size: 1.5rem;
+            }
+
+            .metrics-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .metrics-section {
+                padding: 30px;
+            }
+
+            .container {
+                padding: 30px 15px;
             }
 
             .project-hero h1 {
@@ -139,7 +289,7 @@
             }
 
             .project-meta-info {
-                gap: 1rem;
+                gap: 1.5rem;
             }
         }
     </style>
@@ -167,142 +317,186 @@
                 <a href="project-phone-a-friend.html" class="back-link">← Previous Project</a>
                 <a href="project-wyndham.html" class="back-link" style="text-align: right;">Next Project →</a>
             </div>
-            <h1>Grounding AI in Sales Strategy</h1>
-            <p style="font-size: 1.25rem; color: #666666; margin-top: 1rem;">Building Trust and Velocity in High-Stakes Planning</p>
+            <h1>Research That Changed the Sales Planning Roadmap</h1>
+            <p style="font-size: 1.25rem; color: #666666; margin-top: 1rem;">Nobody was asking sellers how they actually use these tools</p>
 
             <div class="project-meta-info">
                 <div class="meta-detail">
                     <div class="meta-detail-label">Role</div>
-                    <div class="meta-detail-value">UX Research & Strategy</div>
+                    <div class="meta-detail-value">UX Researcher & Program Owner</div>
                 </div>
                 <div class="meta-detail">
                     <div class="meta-detail-label">Type</div>
                     <div class="meta-detail-value">Foundational Research</div>
                 </div>
                 <div class="meta-detail">
-                    <div class="meta-detail-label">Duration</div>
-                    <div class="meta-detail-value">6 months</div>
+                    <div class="meta-detail-label">Scope</div>
+                    <div class="meta-detail-value">Global Research Initiative</div>
                 </div>
                 <div class="meta-detail">
-                    <div class="meta-detail-label">Scope</div>
-                    <div class="meta-detail-value">20+ Enterprise Teams</div>
+                    <div class="meta-detail-label">Impact</div>
+                    <div class="meta-detail-value">FY27 Roadmap, Recurring Program</div>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Project Content -->
-    <div class="project-content">
-        <section class="project-section">
-            <h2>Overview</h2>
-            <p>
-                I spent six months researching how sales teams can actually use AI for planning. The goal was figuring out what would make them trust AI and what would make them use it.
-            </p>
-            <p>
-                The work changed how the entire product team thinks about AI in sales. It shaped multiple features and gave us a playbook for building AI that people actually want.
-            </p>
-        </section>
+    <!-- Original Page Content -->
+    <div class="project-content-wrapper">
+        <!-- The Problem -->
+        <div class="content-grid">
+            <div class="content-column">
+                <h2 class="section-header">The Problem</h2>
+                <p class="body-text">Account Plans and QAPs are critical tools for sellers. They use them every day. But nobody on the team actually understood how they worked or where sellers got stuck.</p>
 
-        <section class="project-section">
-            <h2>The Question</h2>
-            <p>
-                Sales leaders are careful about AI. They deal with big decisions that affect the company's money. The question was simple: how do we build AI that they actually trust?
-            </p>
-            <p>
-                I needed to understand not just what they do, but why. What makes them confident. Where they see AI helping versus where they see it as a risk.
-            </p>
-        </section>
+                <div class="highlight-box">
+                    <p class="highlight-text">The March QAP cycle was approaching. Nobody had flagged this gap. Nobody owned it. And if we didn't understand seller behavior, we'd be guessing on the FY27 roadmap.</p>
+                </div>
 
-        <section class="project-section">
-            <h2>How I Researched It</h2>
-            <div class="research-methodology">
-                <div class="method-item">
-                    <h3>Interviews</h3>
-                    <p>Deep conversations with 20+ sales leaders. I wanted to understand how they actually plan and what they trust.</p>
+                <p class="body-text">I spotted the gap. I spotted the deadline. And I built a research plan from scratch to answer the questions nobody was asking.</p>
+            </div>
+
+            <div class="content-column">
+                <div class="image-container">
+                    <img src="sales-planning-cover.png" alt="Sales Planning Research Cover">
                 </div>
-                <div class="method-item">
-                    <h3>Observation</h3>
-                    <p>Sat in on planning meetings. Watched how teams make decisions, where they get stuck, where they might benefit from AI.</p>
+                <p class="section-subtitle">Global research coordination across three continents and time zones, targeting sellers at every level—from individual contributors to sales leaders.</p>
+            </div>
+        </div>
+
+        <!-- Research Findings -->
+        <div class="impact-section">
+            <h2 class="section-header">What Sellers Told Us</h2>
+            <div class="image-container">
+                <img src="research-quote.jpg" alt="Account Executive Quote - Forecasting and Planning is a Guessing Game">
+            </div>
+            <p class="body-text" style="text-align: center; font-style: italic; margin-top: 20px;">Planning felt like a guessing game. That one quote said everything. Sellers weren't thinking strategically. They were filling out forms they had to fill out and hoping their numbers made sense.</p>
+        </div>
+
+        <!-- What I Did -->
+        <div class="impact-section">
+            <h2 class="section-header">What I Built</h2>
+            <p class="body-text">I built the whole research initiative from scratch. Designed the study. Recruited 38 sellers across three continents. Coordinated the sessions. Translated the findings. Got them to the right people in time.</p>
+
+            <div class="image-container">
+                <img src="research-executive-summary.jpg" alt="Executive Summary - The Core Problem and Strategic Insights from research">
+            </div>
+            <p class="body-text" style="margin-bottom: 40px;">Three key insights emerged. Planning isn't in the planning tools. Most of it happens in spreadsheets and emails. And there's a massive lag between when data's available and when sellers can actually use it. That gap forces them to work around the system.</p>
+
+            <div class="steps-grid">
+                <div class="step-card">
+                    <div class="step-number">1</div>
+                    <div class="step-title">Spotted the Gap</div>
+                    <div class="step-description">The March cycle was coming. Nobody else saw the research gap or the deadline. I built a plan around both to make sure findings would land in time for roadmap decisions.</div>
                 </div>
-                <div class="method-item">
-                    <h3>Workflow Mapping</h3>
-                    <p>Traced their planning process to find the friction points. These are where AI could actually help.</p>
+
+                <div class="step-card">
+                    <div class="step-number">2</div>
+                    <div class="step-title">Designed the Study</div>
+                    <div class="step-description">Asked the questions that actually mattered. How do sellers really use these tools? Where do they struggle? What workarounds do they build instead?</div>
                 </div>
-                <div class="method-item">
-                    <h3>Concept Testing</h3>
-                    <p>Tested AI concepts with them to see what they liked and what made them nervous.</p>
+
+                <div class="step-card">
+                    <div class="step-number">3</div>
+                    <div class="step-title">Built the Sample</div>
+                    <div class="step-description">Started with 16,000 names. Filtered down to a real, usable list. Caught that sales leaders were completely missing. Pushed to get them added so the sample was actually representative.</div>
+                </div>
+            </div>
+
+            <div class="image-container" style="margin-top: 40px; margin-bottom: 40px;">
+                <img src="research-demographics.jpg" alt="Participant Demographics - 38 users across roles and regions">
+            </div>
+            <p class="body-text" style="text-align: center; margin-bottom: 40px;"><strong>Final cohort:</strong> 38 sellers from three continents. Account Executives. Specialists. Leaders. An average of 5.6 years at Salesforce. Real perspectives across real roles.</p>
+
+                <div class="step-card">
+                    <div class="step-number">4</div>
+                    <div class="step-title">Coordinated Globally</div>
+                    <div class="step-description">Ran sessions across three continents at three different times. Mixed recruiting sources. Made sure every region and role was represented. Kept everyone coordinated and on time.</div>
+                </div>
+
+                <div class="step-card">
+                    <div class="step-number">5</div>
+                    <div class="step-title">Translated the Jargon</div>
+                    <div class="step-description">Jumped into live sessions to translate sales terminology on the fly. Sellers spoke one language. The product team spoke another. I made sure the feedback was actually understood correctly.</div>
+                </div>
+
+                <div class="step-card">
+                    <div class="step-number">6</div>
+                    <div class="step-title">Pushed Upstream</div>
+                    <div class="step-description">Didn't just hand off a report. Proposed a workshop to map insights directly to roadmap priorities. Got UX into strategy conversations instead of just waiting for requirements.</div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Metrics -->
+        <section class="impact-section">
+            <h2 class="section-header">By The Numbers</h2>
+            <div class="metrics-grid" style="display: grid; grid-template-columns: repeat(2, 1fr); gap: 2rem; padding: 2rem; background-color: #FFF2E2; border-radius: 8px; box-sizing: border-box;">
+                <div class="metric-card" style="text-align: center;">
+                    <div style="font-size: 2rem; font-weight: 700; color: #7B5E8E; margin-bottom: 0.5rem;">16K</div>
+                    <div style="font-size: 0.875rem; color: #666666; font-weight: 600;">Candidates filtered to a usable global sample</div>
+                </div>
+                <div class="metric-card" style="text-align: center;">
+                    <div style="font-size: 2rem; font-weight: 700; color: #7B5E8E; margin-bottom: 0.5rem;">38</div>
+                    <div style="font-size: 0.875rem; color: #666666; font-weight: 600;">Sellers interviewed across roles and regions</div>
+                </div>
+                <div class="metric-card" style="text-align: center;">
+                    <div style="font-size: 2rem; font-weight: 700; color: #7B5E8E; margin-bottom: 0.5rem;">3</div>
+                    <div style="font-size: 0.875rem; color: #666666; font-weight: 600;">Continents coordinated in real time</div>
+                </div>
+                <div class="metric-card" style="text-align: center;">
+                    <div style="font-size: 2rem; font-weight: 700; color: #7B5E8E; margin-bottom: 0.5rem;">1</div>
+                    <div style="font-size: 0.875rem; color: #666666; font-weight: 600;">Hard deadline for roadmap decisions</div>
                 </div>
             </div>
         </section>
 
-        <section class="project-section">
-            <h2>Key Insights</h2>
-            <div class="key-insights">
-                <div class="insight">
-                    <h4>1. Show Your Work</h4>
-                    <p>Leaders need to understand why AI gave that recommendation. A smart prediction is worthless if you can't explain it to your team.</p>
-                </div>
-                <div class="insight">
-                    <h4>2. Let People Decide</h4>
-                    <p>AI that makes decisions for people gets rejected. AI that makes suggestions and lets people choose gets used. Even if AI is more accurate, people want a say.</p>
-                </div>
-                <div class="insight">
-                    <h4>3. Make It Relevant</h4>
-                    <p>Generic AI suggestions feel useless. AI that gets your specific deals, your team, your market—that's valuable.</p>
-                </div>
-                <div class="insight">
-                    <h4>4. Speed Plus Confidence</h4>
-                    <p>People want AI to help them work faster without making them less confident in their decisions. The design challenge is doing both.</p>
-                </div>
-                <div class="insight">
-                    <h4>5. People Follow People</h4>
-                    <p>When leaders see other leaders they respect using AI, adoption takes off. Seeing it work matters more than hearing it's good.</p>
-                </div>
-            </div>
-        </section>
+        <!-- Impact -->
+        <div class="impact-section">
+            <h2 class="section-header">Impact Across Salesforce</h2>
+            <ul class="impact-list">
+                <li class="impact-item">
+                    <div class="impact-title">Started a Program</div>
+                    <div class="impact-description">This research became the template for the Quarterly Seller Research Program. Now it's a recurring thing. Every quarter has a focus and dedicated research. One project turned into a practice.</div>
+                </li>
+                <li class="impact-item">
+                    <div class="impact-title">Changed the Roadmap</div>
+                    <div class="impact-description">Findings went straight to roadmap decisions. Territory intelligence. Insight logic. Sales leaders built their strategy on seller data instead of guessing.</div>
+                </li>
+                <li class="impact-item">
+                    <div class="impact-title">Moved UX Upstream</div>
+                    <div class="impact-description">Instead of waiting for requirements, UX now sits in strategy conversations from the start. I proposed the workshop. I pushed the seat at the table. Now it's just how we work.</div>
+                </li>
+                <li class="impact-item">
+                    <div class="impact-title">Recognized Work</div>
+                    <div class="impact-description">Called out in the Big Wins recap by peers. Portfolio-worthy. Spotted the gap. Built the right sample. Translated terminology. Proposed the workshop. Pushed the work upstream.</div>
+                </li>
+            </ul>
+        </div>
 
-        <section class="project-section">
-            <h2>Impact on Product Direction</h2>
-            <p>
-                This research directly shaped the design of multiple AI features:
-            </p>
-            <div style="background-color: #f5f3f0; padding: 2rem; border-radius: 8px;">
-                <ul style="list-style: none; padding: 0;">
-                    <li style="margin-bottom: 1rem; padding-left: 2rem; position: relative;">
-                        <span style="position: absolute; left: 0; color: #8B5CF6;">→</span>
-                        <strong>Explainability Layers:</strong> Every AI recommendation includes clear reasoning and source data
-                    </li>
-                    <li style="margin-bottom: 1rem; padding-left: 2rem; position: relative;">
-                        <span style="position: absolute; left: 0; color: #8B5CF6;">→</span>
-                        <strong>Human-in-the-Loop Workflows:</strong> AI suggests, but humans decide and execute
-                    </li>
-                    <li style="margin-bottom: 1rem; padding-left: 2rem; position: relative;">
-                        <span style="position: absolute; left: 0; color: #8B5CF6;">→</span>
-                        <strong>Contextual Intelligence:</strong> AI learns team-specific patterns and preferences
-                    </li>
-                    <li style="padding-left: 2rem; position: relative;">
-                        <span style="position: absolute; left: 0; color: #8B5CF6;">→</span>
-                        <strong>Success Stories:</strong> In-product features highlight how other teams are using AI successfully
-                    </li>
-                </ul>
-            </div>
-        </section>
+        <!-- Why This Matters -->
+        <div class="impact-section">
+            <h2 class="section-header">Why This Matters</h2>
+            <p class="body-text">Three things could have gone wrong if I hadn't owned this work:</p>
+            <ul class="impact-list">
+                <li class="impact-item">
+                    <div class="impact-title">Gap goes unaddressed</div>
+                    <div class="impact-description">Nobody else saw it. Nobody owned it. The March deadline arrives and we're building the FY27 roadmap blind.</div>
+                </li>
+                <li class="impact-item">
+                    <div class="impact-title">Missing half the story</div>
+                    <div class="impact-description">I caught that sales leaders weren't in the original sample. Without them, we'd only understand how Account Executives work. Leadership uses planning differently. The sample would have been incomplete.</div>
+                </li>
+                <li class="impact-item">
+                    <div class="impact-title">Data gets misunderstood</div>
+                    <div class="impact-description">Sellers use insider jargon. If the product team interprets it wrong, roadmap decisions get made on faulty data. Credibility dies. The whole research falls apart.</div>
+                </li>
+            </ul>
+        </div>
 
-        <section class="project-section">
-            <h2>What This Taught Me</h2>
-            <p>
-                <strong>Research changes how you build things.</strong> It's not just about saying "good idea" or "bad idea." It's about finding the truth that changes everything.
-            </p>
-            <p>
-                Without this research, we might have built something technically smart that nobody wanted. By understanding how leaders actually think and decide, we built AI that was powerful and trustworthy.
-            </p>
-        </section>
-
-        <section class="project-section" style="margin-top: 6rem; padding-top: 4rem; border-top: 1px solid #E9D5FF;">
-            <div style="display: flex; justify-content: space-between; align-items: center;">
-                <a href="project-phone-a-friend.html" class="back-link">← Previous Project</a>
-                <a href="project-wyndham.html" class="back-link" style="text-align: right;">Next Project →</a>
-            </div>
+        <section class="navigation-section">
+            <a href="project-phone-a-friend.html" class="back-link">← Previous Project</a>
+            <a href="project-wyndham.html" class="back-link" style="text-align: right;">Next Project →</a>
         </section>
     </div>
 
@@ -317,5 +511,30 @@
             </div>
         </div>
     </footer>
+
+    <script>
+        const hamburger = document.getElementById('hamburger');
+        const navMenu = document.getElementById('nav-menu');
+        const navLinks = document.querySelectorAll('.nav-link');
+
+        hamburger.addEventListener('click', () => {
+            hamburger.classList.toggle('active');
+            navMenu.classList.toggle('active');
+        });
+
+        navLinks.forEach(link => {
+            link.addEventListener('click', () => {
+                hamburger.classList.remove('active');
+                navMenu.classList.remove('active');
+            });
+        });
+
+        document.addEventListener('click', (e) => {
+            if (!e.target.closest('.navbar')) {
+                hamburger.classList.remove('active');
+                navMenu.classList.remove('active');
+            }
+        });
+    </script>
 </body>
 </html>
