@@ -157,14 +157,28 @@ img {
 }
 
 .navbar-logo a {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
     font-size: 1.5rem;
     font-weight: var(--font-weight-400);
     color: var(--color-text);
     font-family: Georgia, serif;
+    text-decoration: none;
+    flex-wrap: nowrap;
+    white-space: nowrap;
 }
 
 .navbar-logo a:hover {
     color: var(--color-text);
+}
+
+.navbar-favicon {
+    width: 24px;
+    height: 24px;
+    display: none;
+    flex-shrink: 0;
+    margin-right: 4px;
 }
 
 .nav-contact {
@@ -1203,6 +1217,10 @@ img {
 }
 
 @media (max-width: 480px) {
+    .navbar {
+        padding: 0.75rem var(--spacing-md);
+    }
+
     .navbar-container {
         flex-direction: row;
         gap: var(--spacing-md);
@@ -1211,6 +1229,14 @@ img {
 
     .hamburger {
         display: flex;
+    }
+
+    .navbar-favicon {
+        display: block;
+    }
+
+    .navbar-logo a {
+        font-size: 1.125rem;
     }
 
     .nav-menu {
