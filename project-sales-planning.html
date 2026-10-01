@@ -1,540 +1,170 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Sales Planning Research - How I built a global research initiative that shaped the roadmap">
-    <title>Sales Planning Research | Keith Mistler - UX Designer</title>
-    <link rel="icon" type="image/svg+xml" href="favicon.svg">
-    <link rel="stylesheet" href="styles.css">
-    <style>
-        /* Consistent Header */
-        .project-hero {
-            padding: 4rem 1.5rem;
-            background-color: #f5f3f0;
-            border-bottom: 1px solid #E9D5FF;
-        }
-
-        .project-hero-content {
-            max-width: 1000px;
-            margin: 0 auto;
-        }
-
-        .project-hero h1 {
-            font-size: 2.5rem;
-            margin-bottom: 1rem;
-            font-family: Georgia, serif;
-        }
-
-        .project-meta-info {
-            display: flex;
-            gap: 2rem;
-            margin: 2rem 0;
-            flex-wrap: wrap;
-        }
-
-        .meta-detail {
-            flex: 1;
-            min-width: 200px;
-        }
-
-        .meta-detail-label {
-            font-size: 0.875rem;
-            text-transform: uppercase;
-            color: #666666;
-            font-weight: 600;
-            margin-bottom: 0.5rem;
-        }
-
-        .meta-detail-value {
-            font-size: 1rem;
-            color: #1a1a1a;
-        }
-
-        .back-link {
-            display: inline-block;
-            margin-bottom: 2rem;
-            color: #8B5CF6;
-            font-weight: 500;
-            transition: all 300ms cubic-bezier(0.4, 0, 0.2, 1);
-        }
-
-        .back-link:hover {
-            transform: translateX(-4px);
-        }
-
-        /* Original Page Styling */
-        body {
-            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', sans-serif;
-            background-color: #F9F5F1;
-            color: #666666;
-            line-height: 1.6;
-        }
-
-        .container {
-            max-width: 900px;
-            margin: 0 auto;
-            padding: 60px 20px;
-        }
-
-        .project-content-wrapper {
-            margin: 0 auto;
-            padding: 4rem 0;
-        }
-
-        .section-header {
-            font-size: 2rem;
-            font-weight: 700;
-            color: #38204C;
-            margin-bottom: 20px;
-            font-family: Georgia, serif;
-            line-height: 1.3;
-        }
-
-        .section-subtitle {
-            font-size: 1.125rem;
-            color: #5D4670;
-            font-weight: 600;
-            margin-bottom: 15px;
-        }
-
-        .body-text {
-            font-size: 1rem;
-            color: #666666;
-            line-height: 1.8;
-            margin-bottom: 15px;
-        }
-
-        .highlight-box {
-            background-color: #FFF2E2;
-            border-left: 4px solid #7B5E8E;
-            padding: 24px;
-            border-radius: 8px;
-            margin: 20px 0;
-        }
-
-        .highlight-text {
-            font-weight: 600;
-            color: #38204C;
-            font-size: 1.125rem;
-        }
-
-        .image-container {
-            width: 100%;
-            border-radius: 12px;
-            overflow: hidden;
-            box-shadow: 0 12px 32px rgba(123, 94, 142, 0.15);
-            margin-bottom: 30px;
-        }
-
-        .image-container img {
-            width: 100%;
-            height: auto;
-            display: block;
-        }
-
-        /* Two Column Layout */
-        .content-grid {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 60px;
-            align-items: start;
-            margin: 0 auto 80px auto;
-            max-width: 900px;
-            padding: 0 1.5rem;
-            box-sizing: border-box;
-        }
-
-        .content-column {
-            display: flex;
-            flex-direction: column;
-            gap: 30px;
-        }
-
-
-        /* Impact Section */
-        .impact-section {
-            margin: 0 auto 80px auto;
-            max-width: 900px;
-            padding: 0 1.5rem;
-            box-sizing: border-box;
-        }
-
-        .impact-list {
-            list-style: none;
-            margin-top: 30px;
-        }
-
-        .impact-item {
-            padding: 20px 0;
-            padding-left: 30px;
-            position: relative;
-            border-bottom: 1px solid #E8D5D1;
-        }
-
-        .impact-item:last-child {
-            border-bottom: none;
-        }
-
-        .impact-item::before {
-            content: "→";
-            position: absolute;
-            left: 0;
-            color: #7B5E8E;
-            font-weight: bold;
-            font-size: 1.25rem;
-        }
-
-        .impact-title {
-            font-weight: 700;
-            color: #38204C;
-            margin-bottom: 8px;
-        }
-
-        .impact-description {
-            color: #888888;
-            font-size: 0.95rem;
-        }
-
-        /* What I Did Section */
-        .steps-grid {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 30px;
-            margin: 30px auto 0 auto;
-            max-width: 900px;
-            padding: 0 1.5rem;
-            box-sizing: border-box;
-        }
-
-        .step-card {
-            background-color: #FFFFFF;
-            padding: 30px;
-            border-radius: 8px;
-            border: 2px solid #E8D5D1;
-            transition: all 0.3s ease;
-        }
-
-        .step-card:hover {
-            border-color: #7B5E8E;
-            box-shadow: 0 8px 24px rgba(123, 94, 142, 0.1);
-        }
-
-        .step-number {
-            display: inline-block;
-            background-color: #7B5E8E;
-            color: #FFFFFF;
-            width: 40px;
-            height: 40px;
-            border-radius: 50%;
-            text-align: center;
-            line-height: 40px;
-            font-weight: 700;
-            margin-bottom: 15px;
-        }
-
-        .step-title {
-            font-size: 1.125rem;
-            font-weight: 700;
-            color: #38204C;
-            margin-bottom: 10px;
-        }
-
-        .step-description {
-            font-size: 0.95rem;
-            color: #888888;
-            line-height: 1.6;
-        }
-
-        /* Navigation Section */
-        .navigation-section {
-            margin: 0 auto 80px auto;
-            max-width: 900px;
-            padding: 0 1.5rem;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            box-sizing: border-box;
-        }
-
-        /* Responsive */
-        @media (max-width: 768px) {
-            .content-grid {
-                grid-template-columns: 1fr;
-                gap: 40px;
-            }
-
-            .steps-grid {
-                grid-template-columns: 1fr;
-            }
-
-            .section-header {
-                font-size: 1.5rem;
-            }
-
-            .metrics-grid {
-                grid-template-columns: 1fr;
-            }
-
-            .metrics-section {
-                padding: 30px;
-            }
-
-            .container {
-                padding: 30px 15px;
-            }
-
-            .project-hero h1 {
-                font-size: 1.875rem;
-            }
-
-            .project-meta-info {
-                gap: 1.5rem;
-            }
-        }
-    </style>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Sales Planning Research · Keith Mistler</title>
+  <meta name="description" content="A global research study with 38 sellers that shaped a sales planning roadmap and became a recurring program.">
+  <link rel="icon" type="image/svg+xml" href="favicon.svg">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Inter+Tight:wght@500;600&family=JetBrains+Mono:wght@500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+  <script>document.documentElement.classList.add('js');</script>
 </head>
 <body>
-    <!-- Navigation -->
-    <nav class="navbar">
-        <div class="navbar-container">
-            <div class="navbar-logo">
-                <a href="index.html">Keith Mistler</a>
-            </div>
-            <ul class="nav-menu">
-                <li><a href="index.html" class="nav-link">Home</a></li>
-                <li><a href="index.html#work" class="nav-link">Work</a></li>
-                <li><a href="index.html#about" class="nav-link">About</a></li>
-                <li><a href="index.html#contact" class="nav-link">Contact</a></li>
-            </ul>
-        </div>
-    </nav>
 
-    <!-- Project Hero -->
-    <section class="project-hero">
-        <div class="project-hero-content">
-            <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 2rem;">
-                <a href="project-phone-a-friend.html" class="back-link">← Previous Project</a>
-                <a href="project-wyndham.html" class="back-link" style="text-align: right;">Next Project →</a>
-            </div>
-            <h1>Research That Changed the Sales Planning Roadmap</h1>
-            <p style="font-size: 1.25rem; color: #666666; margin-top: 1rem;">Nobody was asking sellers how they actually use these tools</p>
+  <header class="nav" id="nav">
+    <div class="wrap nav-inner">
+      <a href="index.html" class="wordmark">Keith Mistler<span>.</span></a>
+      <button class="menu-btn" id="menuBtn" aria-label="Open menu" aria-expanded="false" aria-controls="navLinks"><span></span><span></span></button>
+      <ul class="nav-links" id="navLinks">
+        <li><a href="index.html#work">Work</a></li>
+        <li><a href="index.html#about">About</a></li>
+        <li><a href="index.html#play">Play</a></li>
+        <li><a href="#contact" class="nav-cta">Get in touch</a></li>
+      </ul>
+    </div>
+  </header>
 
-            <div class="project-meta-info">
-                <div class="meta-detail">
-                    <div class="meta-detail-label">Role</div>
-                    <div class="meta-detail-value">UX Researcher & Program Owner</div>
-                </div>
-                <div class="meta-detail">
-                    <div class="meta-detail-label">Type</div>
-                    <div class="meta-detail-value">Foundational Research</div>
-                </div>
-                <div class="meta-detail">
-                    <div class="meta-detail-label">Scope</div>
-                    <div class="meta-detail-value">Global Research Initiative</div>
-                </div>
-                <div class="meta-detail">
-                    <div class="meta-detail-label">Impact</div>
-                    <div class="meta-detail-value">FY27 Roadmap, Recurring Program</div>
-                </div>
-            </div>
+  <main>
+    <section class="cs-hero">
+      <div class="wrap">
+        <div class="cs-topbar">
+          <a href="index.html#work" class="cs-back"><span class="arrow">←</span> All work</a>
+          <nav class="cs-pager-mini" aria-label="Project navigation">
+            <a href="project-solutions-workspace.html" rel="prev"><span class="arrow">←</span> Previous</a>
+            <span class="count" aria-hidden="true">|</span>
+            <a href="project-wyndham.html" rel="next">Next <span class="arrow">→</span></a>
+          </nav>
         </div>
+        <div class="status">UX research · Global study</div>
+        <h1>Research that reshaped a <em>sales planning roadmap</em></h1>
+        <p class="cs-lede">Nobody was asking sellers how they actually use their planning tools. I spotted the gap, owned it, and turned it into research that changed the roadmap.</p>
+        <div class="cs-meta"><div><span class="label">My role</span><p>UX researcher and program owner</p></div><div><span class="label">Type</span><p>Foundational research</p></div><div><span class="label">Participants</span><p>38 sellers, including 7 sales leaders</p></div><div><span class="label">Impact</span><p>Next-year roadmap and a recurring program</p></div></div>
+        <div class="cs-cover"><img src="sales-planning-cover.png" alt="Sales planning research cover"></div>
+      </div>
     </section>
 
-    <!-- Original Page Content -->
-    <div class="project-content-wrapper">
-        <!-- The Problem -->
-        <div class="content-grid">
-            <div class="content-column">
-                <h2 class="section-header">The Problem</h2>
-                <p class="body-text">Account Plans and QAPs are critical tools for sellers. They use them every day. But nobody on the team actually understood how they worked or where sellers got stuck.</p>
+    <div class="wrap">
+      <div class="cs-stats reveal"><div><b>16K</b><span>names filtered down to a usable global sample</span></div><div><b>38</b><span>sellers interviewed across roles and regions</span></div><div><b>3</b><span>regions coordinated across time zones</span></div><div><b>5.6 yrs</b><span>average seller tenure in the study</span></div></div>
 
-                <div class="highlight-box">
-                    <p class="highlight-text">The March QAP cycle was approaching. Nobody had flagged this gap. Nobody owned it. And if we didn't understand seller behavior, we'd be guessing on the FY27 roadmap.</p>
-                </div>
-
-                <p class="body-text">I spotted the gap. I spotted the deadline. And I built a research plan from scratch to answer the questions nobody was asking.</p>
-            </div>
-
-            <div class="content-column">
-                <div class="image-container">
-                    <img src="sales-planning-cover.png" alt="Sales Planning Research Cover">
-                </div>
-                <p class="section-subtitle">Global research coordination across three continents and time zones, targeting sellers at every level—from individual contributors to sales leaders.</p>
-            </div>
+      <section class="cs-section reveal">
+        <span class="label">The problem</span>
+        <div class="cs-body">
+          <h2>A critical tool nobody understood.</h2>
+          <p>Account plans and quarterly account plans are required tools for sellers. But nobody on the team understood how sellers actually used them, or where they got stuck.</p>
+          <div class="cs-callout">The March planning cycle was coming. Nobody had flagged the gap, and nobody owned it. Without research, the next year's roadmap would be guesswork.</div>
+          <p>I spotted the gap and the deadline, and built a research plan from scratch to answer the questions nobody was asking.</p>
         </div>
+      </section>
 
-        <!-- Research Findings -->
-        <div class="impact-section">
-            <h2 class="section-header">What Sellers Told Us</h2>
-            <div class="image-container">
-                <img src="research-quote.jpg" alt="Account Executive Quote - Forecasting and Planning is a Guessing Game">
-            </div>
-            <p class="body-text" style="text-align: center; font-style: italic; margin-top: 20px;">Planning felt like a guessing game. That one quote said everything. Sellers weren't thinking strategically. They were filling out forms they had to fill out and hoping their numbers made sense.</p>
+      <section class="cs-section reveal">
+        <span class="label">What I did</span>
+        <div class="cs-body">
+          <h2>Owning it end to end.</h2>
+          <div class="cs-cards three">
+            <div class="cs-card"><span class="n">1</span><h4>Spotted the gap</h4><p>Built a plan so findings would land before roadmap decisions.</p></div>
+            <div class="cs-card"><span class="n">2</span><h4>Designed the study</h4><p>How do sellers really plan? Where do they struggle? What workarounds do they build?</p></div>
+            <div class="cs-card"><span class="n">3</span><h4>Built the sample</h4><p>Filtered 16,000 names and caught that sales leaders were missing. I got them added.</p></div>
+            <div class="cs-card"><span class="n">4</span><h4>Ran it globally</h4><p>Sessions across three regions at three different times, with every role represented.</p></div>
+            <div class="cs-card"><span class="n">5</span><h4>Translated the jargon</h4><p>Jumped in live to translate sales terms so the team read the data correctly.</p></div>
+            <div class="cs-card"><span class="n">6</span><h4>Pushed upstream</h4><p>Proposed a workshop to map insights straight to roadmap priorities.</p></div>
+          </div>
+          <figure class="cs-figure"><img src="research-demographics.jpg" alt="Participant demographics: 38 sellers across roles and regions" loading="lazy"><figcaption>Final cohort: account executives, specialists, and leaders from SMB to Enterprise and Public Sector.</figcaption></figure>
         </div>
+      </section>
 
-        <!-- What I Did -->
-        <div class="impact-section">
-            <h2 class="section-header">What I Built</h2>
-            <p class="body-text">I built the whole research initiative from scratch. Designed the study. Recruited 38 sellers across three continents. Coordinated the sessions. Translated the findings. Got them to the right people in time.</p>
-
-            <div class="image-container">
-                <img src="research-executive-summary.jpg" alt="Executive Summary - The Core Problem and Strategic Insights from research">
-            </div>
-            <p class="body-text" style="margin-bottom: 40px;">Three key insights emerged. Planning isn't in the planning tools. Most of it happens in spreadsheets and emails. And there's a massive lag between when data's available and when sellers can actually use it. That gap forces them to work around the system.</p>
-
-            <div class="steps-grid">
-                <div class="step-card">
-                    <div class="step-number">1</div>
-                    <div class="step-title">Spotted the Gap</div>
-                    <div class="step-description">The March cycle was coming. Nobody else saw the research gap or the deadline. I built a plan around both to make sure findings would land in time for roadmap decisions.</div>
-                </div>
-
-                <div class="step-card">
-                    <div class="step-number">2</div>
-                    <div class="step-title">Designed the Study</div>
-                    <div class="step-description">Asked the questions that actually mattered. How do sellers really use these tools? Where do they struggle? What workarounds do they build instead?</div>
-                </div>
-
-                <div class="step-card">
-                    <div class="step-number">3</div>
-                    <div class="step-title">Built the Sample</div>
-                    <div class="step-description">Started with 16,000 names. Filtered down to a real, usable list. Caught that sales leaders were completely missing. Pushed to get them added so the sample was actually representative.</div>
-                </div>
-            </div>
-
-            <div class="image-container" style="margin-top: 40px; margin-bottom: 40px;">
-                <img src="research-demographics.jpg" alt="Participant Demographics - 38 users across roles and regions">
-            </div>
-            <p class="body-text" style="text-align: center; margin-bottom: 40px;"><strong>Final cohort:</strong> 38 sellers from three continents. Account Executives. Specialists. Leaders. An average of 5.6 years at Salesforce. Real perspectives across real roles.</p>
-
-                <div class="step-card">
-                    <div class="step-number">4</div>
-                    <div class="step-title">Coordinated Globally</div>
-                    <div class="step-description">Ran sessions across three continents at three different times. Mixed recruiting sources. Made sure every region and role was represented. Kept everyone coordinated and on time.</div>
-                </div>
-
-                <div class="step-card">
-                    <div class="step-number">5</div>
-                    <div class="step-title">Translated the Jargon</div>
-                    <div class="step-description">Jumped into live sessions to translate sales terminology on the fly. Sellers spoke one language. The product team spoke another. I made sure the feedback was actually understood correctly.</div>
-                </div>
-
-                <div class="step-card">
-                    <div class="step-number">6</div>
-                    <div class="step-title">Pushed Upstream</div>
-                    <div class="step-description">Didn't just hand off a report. Proposed a workshop to map insights directly to roadmap priorities. Got UX into strategy conversations instead of just waiting for requirements.</div>
-                </div>
-            </div>
+      <section class="cs-section reveal">
+        <span class="label">What we learned</span>
+        <div class="cs-body">
+          <h2>Planning wasn't happening in the planning tools.</h2>
+          <figure class="cs-figure"><img src="research-quote.jpg" alt="Seller quote: forecasting and planning is a guessing game" loading="lazy"></figure>
+          <ul>
+            <li><strong>About 80% of real planning happens in shadow tools</strong> like spreadsheets and Slack canvases. The official tools were a system of record, not a system of planning.</li>
+            <li><strong>A 13-day data gap</strong> between territory assignment and tool access forced sellers to plan by hand.</li>
+            <li><strong>The AI paradox:</strong> AI drafts were about 80% faster, but sellers rewrote about half of them and rated their trust around 5 out of 10. They wanted citations and live data.</li>
+            <li><strong>About 15 hours</strong> of manual re-entry during peak planning, roughly two full workdays.</li>
+          </ul>
+          <div class="cs-quote"><p>"We are a CRM company, but we use Google Sheets."</p><cite>Seller in the study</cite></div>
+          <figure class="cs-figure"><img src="research-executive-summary.jpg" alt="Executive summary of the research" loading="lazy"></figure>
         </div>
+      </section>
 
-        <!-- Metrics -->
-        <section class="impact-section">
-            <h2 class="section-header">By The Numbers</h2>
-            <div class="metrics-grid" style="display: grid; grid-template-columns: repeat(2, 1fr); gap: 2rem; padding: 2rem; background-color: #FFF2E2; border-radius: 8px; box-sizing: border-box;">
-                <div class="metric-card" style="text-align: center;">
-                    <div style="font-size: 2rem; font-weight: 700; color: #7B5E8E; margin-bottom: 0.5rem;">16K</div>
-                    <div style="font-size: 0.875rem; color: #666666; font-weight: 600;">Candidates filtered to a usable global sample</div>
-                </div>
-                <div class="metric-card" style="text-align: center;">
-                    <div style="font-size: 2rem; font-weight: 700; color: #7B5E8E; margin-bottom: 0.5rem;">38</div>
-                    <div style="font-size: 0.875rem; color: #666666; font-weight: 600;">Sellers interviewed across roles and regions</div>
-                </div>
-                <div class="metric-card" style="text-align: center;">
-                    <div style="font-size: 2rem; font-weight: 700; color: #7B5E8E; margin-bottom: 0.5rem;">3</div>
-                    <div style="font-size: 0.875rem; color: #666666; font-weight: 600;">Continents coordinated in real time</div>
-                </div>
-                <div class="metric-card" style="text-align: center;">
-                    <div style="font-size: 2rem; font-weight: 700; color: #7B5E8E; margin-bottom: 0.5rem;">1</div>
-                    <div style="font-size: 0.875rem; color: #666666; font-weight: 600;">Hard deadline for roadmap decisions</div>
-                </div>
-            </div>
-        </section>
-
-        <!-- Impact -->
-        <div class="impact-section">
-            <h2 class="section-header">Impact Across Salesforce</h2>
-            <ul class="impact-list">
-                <li class="impact-item">
-                    <div class="impact-title">Started a Program</div>
-                    <div class="impact-description">This research became the template for the Quarterly Seller Research Program. Now it's a recurring thing. Every quarter has a focus and dedicated research. One project turned into a practice.</div>
-                </li>
-                <li class="impact-item">
-                    <div class="impact-title">Changed the Roadmap</div>
-                    <div class="impact-description">Findings went straight to roadmap decisions. Territory intelligence. Insight logic. Sales leaders built their strategy on seller data instead of guessing.</div>
-                </li>
-                <li class="impact-item">
-                    <div class="impact-title">Moved UX Upstream</div>
-                    <div class="impact-description">Instead of waiting for requirements, UX now sits in strategy conversations from the start. I proposed the workshop. I pushed the seat at the table. Now it's just how we work.</div>
-                </li>
-                <li class="impact-item">
-                    <div class="impact-title">Recognized Work</div>
-                    <div class="impact-description">Called out in the Big Wins recap by peers. Portfolio-worthy. Spotted the gap. Built the right sample. Translated terminology. Proposed the workshop. Pushed the work upstream.</div>
-                </li>
-            </ul>
+      <section class="cs-section reveal">
+        <span class="label">Impact</span>
+        <div class="cs-body">
+          <h2>One study became a practice.</h2>
+          <div class="cs-cards">
+            <div class="cs-card tint"><h4>Started a program</h4><p>This study became the template for a recurring Quarterly Seller Research Program.</p></div>
+            <div class="cs-card tint"><h4>Changed the roadmap</h4><p>Findings fed the next year's sales planning roadmap, including territory intelligence and insight logic.</p></div>
+            <div class="cs-card tint"><h4>Moved UX upstream</h4><p>UX now sits in strategy conversations from the start, instead of waiting for requirements.</p></div>
+            <div class="cs-card tint"><h4>Recognized by peers</h4><p>The work earned five callouts in a team "Big Wins" recap.</p></div>
+          </div>
         </div>
+      </section>
 
-        <!-- Why This Matters -->
-        <div class="impact-section">
-            <h2 class="section-header">Why This Matters</h2>
-            <p class="body-text">Three things could have gone wrong if I hadn't owned this work:</p>
-            <ul class="impact-list">
-                <li class="impact-item">
-                    <div class="impact-title">Gap goes unaddressed</div>
-                    <div class="impact-description">Nobody else saw it. Nobody owned it. The March deadline arrives and we're building the FY27 roadmap blind.</div>
-                </li>
-                <li class="impact-item">
-                    <div class="impact-title">Missing half the story</div>
-                    <div class="impact-description">I caught that sales leaders weren't in the original sample. Without them, we'd only understand how Account Executives work. Leadership uses planning differently. The sample would have been incomplete.</div>
-                </li>
-                <li class="impact-item">
-                    <div class="impact-title">Data gets misunderstood</div>
-                    <div class="impact-description">Sellers use insider jargon. If the product team interprets it wrong, roadmap decisions get made on faulty data. Credibility dies. The whole research falls apart.</div>
-                </li>
-            </ul>
-        </div>
+      <div class="cs-lesson reveal">
+        <span class="label">What I learned</span>
+        <p>The most valuable research is the research nobody asked for.</p><p>If I hadn't owned this, the gap would have gone unaddressed, the sample would have missed sales leaders, and the data could have been misread. Spotting the problem is part of the job.</p>
+      </div>
 
-        <section class="navigation-section">
-            <a href="project-phone-a-friend.html" class="back-link">← Previous Project</a>
-            <a href="project-wyndham.html" class="back-link" style="text-align: right;">Next Project →</a>
-        </section>
+
+      <nav class="cs-pager reveal" aria-label="More projects">
+        <a href="project-solutions-workspace.html" class="cs-pager-card prev">
+          <div class="media"><img src="img/sw.jpg" alt="" loading="lazy"></div>
+          <span class="label"><span class="num">←</span> Previous project</span>
+          <h3>From scattered assets to a platform 16.9K people use</h3>
+        </a>
+        <a href="project-wyndham.html" class="cs-pager-card next">
+          <div class="media"><img src="img/wy.jpg" alt="" loading="lazy"></div>
+          <span class="label">Next project <span class="num">→</span></span>
+          <h3>The future-vision story behind a hospitality win</h3>
+        </a>
+      </nav>
     </div>
+  </main>
 
-    <!-- Footer -->
-    <footer class="footer">
-        <div class="footer-content">
-            <p>&copy; 2026 Keith Mistler. All rights reserved.</p>
-            <div class="footer-links">
-                <a href="index.html#work">Work</a>
-                <a href="index.html#about">About</a>
-                <a href="index.html#contact">Contact</a>
-            </div>
-        </div>
-    </footer>
+  <footer class="contact" id="contact">
+    <div class="wrap">
+      <span class="label">Contact</span>
+      <h2>Let's make something <em>people love</em> to use.</h2>
+      <div class="contact-links">
+        <a href="mailto:kmistler@gmail.com" class="btn btn-primary">kmistler@gmail.com <span class="arrow">→</span></a>
+        <a href="https://www.linkedin.com/in/kmarchmistler" target="_blank" rel="noopener" class="btn btn-ghost">LinkedIn <span class="arrow">↗</span></a>
+      </div>
+      <div class="footer">
+        <span>© 2026 Keith Mistler</span>
+        <a href="index.html">Back to home ↑</a>
+      </div>
+    </div>
+  </footer>
 
-    <script>
-        const hamburger = document.getElementById('hamburger');
-        const navMenu = document.getElementById('nav-menu');
-        const navLinks = document.querySelectorAll('.nav-link');
-
-        hamburger.addEventListener('click', () => {
-            hamburger.classList.toggle('active');
-            navMenu.classList.toggle('active');
-        });
-
-        navLinks.forEach(link => {
-            link.addEventListener('click', () => {
-                hamburger.classList.remove('active');
-                navMenu.classList.remove('active');
-            });
-        });
-
-        document.addEventListener('click', (e) => {
-            if (!e.target.closest('.navbar')) {
-                hamburger.classList.remove('active');
-                navMenu.classList.remove('active');
-            }
-        });
-    </script>
+  <script>
+    const nav = document.getElementById('nav');
+    const onScroll = () => nav.classList.toggle('scrolled', window.scrollY > 8);
+    window.addEventListener('scroll', onScroll, { passive: true });
+    onScroll();
+    const btn = document.getElementById('menuBtn');
+    const links = document.getElementById('navLinks');
+    btn.addEventListener('click', () => {
+      const open = btn.getAttribute('aria-expanded') === 'true';
+      btn.setAttribute('aria-expanded', String(!open));
+      links.classList.toggle('open', !open);
+    });
+    links.querySelectorAll('a').forEach(a => a.addEventListener('click', () => {
+      btn.setAttribute('aria-expanded', 'false');
+      links.classList.remove('open');
+    }));
+    const io = new IntersectionObserver(entries => {
+      entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('in'); io.unobserve(e.target); } });
+    }, { rootMargin: '0px 0px -8% 0px', threshold: 0.06 });
+    document.querySelectorAll('.reveal').forEach(el => io.observe(el));
+    document.addEventListener('keydown', e => {
+      if (e.target.closest('input, textarea') || e.metaKey || e.ctrlKey || e.altKey) return;
+      if (e.key === 'ArrowLeft') location.href = 'project-solutions-workspace.html';
+      if (e.key === 'ArrowRight') location.href = 'project-wyndham.html';
+    });
+  </script>
 </body>
 </html>

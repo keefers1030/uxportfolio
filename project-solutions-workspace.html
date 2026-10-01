@@ -1,465 +1,181 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Solutions Workspace Redesign - Transforming Salesforce's seller platform">
-    <title>Solutions Workspace Redesign | Keith Mistler</title>
-    <link rel="icon" type="image/svg+xml" href="favicon.svg">
-    <link rel="stylesheet" href="styles.css">
-    <style>
-        .project-hero {
-            padding: 4rem 1.5rem;
-            background-color: #f5f3f0;
-            border-bottom: 1px solid #E9D5FF;
-        }
-
-        .project-hero-content {
-            max-width: 1000px;
-            margin: 0 auto;
-        }
-
-        .project-hero h1 {
-            font-size: 2.5rem;
-            margin-bottom: 1rem;
-            font-family: Georgia, serif;
-        }
-
-        .project-meta-info {
-            display: flex;
-            gap: 2rem;
-            margin: 2rem 0;
-            flex-wrap: wrap;
-        }
-
-        .meta-detail {
-            flex: 1;
-            min-width: 200px;
-        }
-
-        .meta-detail-label {
-            font-size: 0.875rem;
-            text-transform: uppercase;
-            color: #666666;
-            font-weight: 600;
-            margin-bottom: 0.5rem;
-        }
-
-        .meta-detail-value {
-            font-size: 1rem;
-            color: #1a1a1a;
-        }
-
-        .project-content {
-            max-width: 900px;
-            margin: 0 auto;
-            padding: 4rem 1.5rem;
-        }
-
-        .project-section {
-            margin-bottom: 4rem;
-        }
-
-        .project-section h2 {
-            font-size: 1.875rem;
-            margin-bottom: 1.5rem;
-            font-family: Georgia, serif;
-        }
-
-        .project-section p {
-            font-size: 1rem;
-            line-height: 1.75;
-            color: #666666;
-            margin-bottom: 1.5rem;
-        }
-
-        .back-link {
-            display: inline-block;
-            margin-bottom: 2rem;
-            color: #8B5CF6;
-            font-weight: 500;
-            transition: all 300ms cubic-bezier(0.4, 0, 0.2, 1);
-        }
-
-        .back-link:hover {
-            transform: translateX(-4px);
-        }
-
-        .key-stats {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-            gap: 2rem;
-            margin: 2rem 0;
-            padding: 2rem;
-            background-color: #fdfbff;
-            border-radius: 8px;
-        }
-
-        .stat {
-            text-align: center;
-        }
-
-        .stat-value {
-            font-size: 2rem;
-            font-weight: 700;
-            color: #8B5CF6;
-            margin-bottom: 0.5rem;
-        }
-
-        .stat-label {
-            font-size: 0.875rem;
-            color: #666666;
-            text-transform: uppercase;
-        }
-
-        .role-badge {
-            display: inline-block;
-            background-color: #fdfbff;
-            color: #8B5CF6;
-            padding: 0.5rem 1rem;
-            border-radius: 20px;
-            font-size: 0.875rem;
-            font-weight: 600;
-            margin-bottom: 2rem;
-        }
-
-        .challenge-box {
-            background-color: #f0f9ff;
-            padding: 2rem;
-            border-radius: 8px;
-            border-left: 4px solid #8B5CF6;
-            margin: 2rem 0;
-        }
-
-        .challenge-label {
-            font-size: 0.875rem;
-            color: #8B5CF6;
-            text-transform: uppercase;
-            letter-spacing: 0.05em;
-            margin-bottom: 0.5rem;
-            font-weight: 600;
-        }
-
-        .challenge-text {
-            font-size: 1.125rem;
-            color: #1a1a1a;
-            font-weight: 500;
-        }
-
-        .highlight {
-            color: #8B5CF6;
-            font-weight: 600;
-        }
-
-        .project-image {
-            width: 100%;
-            border-radius: 8px;
-            margin: 2rem 0;
-            display: block;
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
-        }
-
-        .image-caption {
-            font-size: 0.875rem;
-            color: #666666;
-            margin-top: 1rem;
-            text-align: center;
-            font-style: italic;
-        }
-
-        @media (max-width: 768px) {
-            .project-hero h1 {
-                font-size: 1.875rem;
-            }
-
-            .project-meta-info {
-                gap: 1rem;
-            }
-        }
-    </style>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Solutions Workspace Redesign · Keith Mistler</title>
+  <meta name="description" content="Redesigning Salesforce's internal sales engineering platform, used by 16.9K people.">
+  <link rel="icon" type="image/svg+xml" href="favicon.svg">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Inter+Tight:wght@500;600&family=JetBrains+Mono:wght@500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+  <script>document.documentElement.classList.add('js');</script>
 </head>
 <body>
-    <!-- Navigation -->
-    <nav class="navbar">
-        <div class="navbar-container">
-            <div class="navbar-logo">
-                <a href="index.html">Keith Mistler</a>
-            </div>
-            <ul class="nav-menu">
-                <li><a href="index.html" class="nav-link">Home</a></li>
-                <li><a href="index.html#work" class="nav-link">Work</a></li>
-                <li><a href="index.html#about" class="nav-link">About</a></li>
-                <li><a href="index.html#contact" class="nav-link">Contact</a></li>
-            </ul>
-        </div>
-    </nav>
 
-    <!-- Project Hero -->
-    <section class="project-hero">
-        <div class="project-hero-content">
-            <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 2rem;">
-                <a href="project-digital-publishing.html" class="back-link">← Previous Project</a>
-                <a href="project-phone-a-friend.html" class="back-link" style="text-align: right;">Next Project →</a>
-            </div>
-            <h1>Solutions Workspace Redesign</h1>
-            <p style="font-size: 1.25rem; color: #666666; margin-top: 1rem;">Transforming Salesforce's single source of truth for 16,900+ sellers</p>
+  <header class="nav" id="nav">
+    <div class="wrap nav-inner">
+      <a href="index.html" class="wordmark">Keith Mistler<span>.</span></a>
+      <button class="menu-btn" id="menuBtn" aria-label="Open menu" aria-expanded="false" aria-controls="navLinks"><span></span><span></span></button>
+      <ul class="nav-links" id="navLinks">
+        <li><a href="index.html#work">Work</a></li>
+        <li><a href="index.html#about">About</a></li>
+        <li><a href="index.html#play">Play</a></li>
+        <li><a href="#contact" class="nav-cta">Get in touch</a></li>
+      </ul>
+    </div>
+  </header>
 
-            <div class="project-meta-info">
-                <div class="meta-detail">
-                    <div class="meta-detail-label">Company</div>
-                    <div class="meta-detail-value">Salesforce</div>
-                </div>
-                <div class="meta-detail">
-                    <div class="meta-detail-label">Role</div>
-                    <div class="meta-detail-value">Senior UX Designer</div>
-                </div>
-                <div class="meta-detail">
-                    <div class="meta-detail-label">Timeline</div>
-                    <div class="meta-detail-value">2+ Years</div>
-                </div>
-                <div class="meta-detail">
-                    <div class="meta-detail-label">Impact</div>
-                    <div class="meta-detail-value">$100M+ in Revenue</div>
-                </div>
-            </div>
+  <main>
+    <section class="cs-hero">
+      <div class="wrap">
+        <div class="cs-topbar">
+          <a href="index.html#work" class="cs-back"><span class="arrow">←</span> All work</a>
+          <nav class="cs-pager-mini" aria-label="Project navigation">
+            <a href="project-phone-a-friend.html" rel="prev"><span class="arrow">←</span> Previous</a>
+            <span class="count" aria-hidden="true">|</span>
+            <a href="project-sales-planning.html" rel="next">Next <span class="arrow">→</span></a>
+          </nav>
         </div>
+        <div class="status">Product design · Enterprise platform</div>
+        <h1>From scattered assets to a platform <em>16.9K people</em> use</h1>
+        <p class="cs-lede">Solutions Workspace is where Salesforce sellers go every day to find resources and run demos. Over two-plus years, I redesigned its navigation, demo experience, and content templates, and helped shape what comes next.</p>
+        <div class="cs-meta"><div><span class="label">My role</span><p>Product designer</p></div><div><span class="label">Timeline</span><p>2+ years</p></div><div><span class="label">Users</span><p>16.9K sales engineers and account executives</p></div><div><span class="label">Impact</span><p>Contributed to $100M+ in closed deals</p></div></div>
+        <div class="cs-cover"><img src="img/sw.jpg" alt="Redesigned Solutions Workspace Resources page"></div>
+      </div>
     </section>
 
-    <!-- Project Content -->
-    <div class="project-content">
-        <section class="project-section">
-            <p style="font-size: 1.125rem; color: #666666; margin-bottom: 2rem; line-height: 1.8;">
-                Solutions Workspace is where Salesforce sellers go every day. It's their go-to hub. I spent over two years designing for this platform, working on everything from rebuilding navigation from scratch to overhauling the demo experience to research that's informing what comes next.
-            </p>
-        </section>
+    <div class="wrap">
+      <div class="cs-stats reveal"><div><b>16.9K</b><span>unique users on the platform</span></div><div><b>2nd</b><span>most-clicked destination after the Resources redesign</span></div><div><b>211</b><span>participants in the research study</span></div><div><b>4</b><span>content types with tailored templates</span></div></div>
 
-        <section class="project-section">
-            <h2>The Impact</h2>
-            <div class="key-stats">
-                <div class="stat">
-                    <div class="stat-value">2nd</div>
-                    <div class="stat-label">Most-Clicked Destination</div>
-                </div>
-                <div class="stat">
-                    <div class="stat-value">100%</div>
-                    <div class="stat-label">User Satisfaction on Demo Flow</div>
-                </div>
-                <div class="stat">
-                    <div class="stat-value">211</div>
-                    <div class="stat-label">Participants in Research</div>
-                </div>
-            </div>
-        </section>
-
-        <section class="project-section">
-            <h2>Resources Redesign: Ground-Up V2</h2>
-            <span class="role-badge">Design Strategy, UX, Research</span>
-
-            <h3 style="color: #1a1a1a;">The Challenge</h3>
-            <div class="challenge-box">
-                <div class="challenge-label">Context</div>
-                <div class="challenge-text">We were redesigning navigation and content templates during a major organizational shift. There was no old version to reference, stakeholders wanted different things, and the launch window was tight.</div>
-            </div>
-
-            <p>Resources is the second most-used section of Solutions Workspace. Sales teams use it to find materials and assets they need. But the existing experience was messy, hard to navigate, and people didn't trust it.</p>
-
-            <h3 style="color: #1a1a1a;">How I Approached It</h3>
-            <p>I handled the whole design process from start to finish:</p>
-            <ul style="padding-left: 2rem; margin-bottom: 1.5rem;">
-                <li style="margin-bottom: 1rem;"><strong>Strategy:</strong> Built a brand-new information architecture and navigation. No existing blueprint to copy.</li>
-                <li style="margin-bottom: 1rem;"><strong>Research:</strong> Talked to Sales Engineers and Account Executives to understand their actual needs</li>
-                <li style="margin-bottom: 1rem;"><strong>Personas & Flows:</strong> Created detailed personas and user flows to guide my design</li>
-                <li style="margin-bottom: 1rem;"><strong>Prototyping:</strong> Built wireframes and prototypes, then tested and iterated</li>
-                <li style="margin-bottom: 1rem;"><strong>Dev Partnership:</strong> Worked closely with the dev team during implementation</li>
-                <li><strong>Testing & Launch:</strong> Ran usability tests and quality checks before launch</li>
-            </ul>
-
-            <h3 style="color: #1a1a1a;">What Happened</h3>
-            <p>Resources became the <span class="highlight">second most-clicked section in Solutions Workspace</span>. People loved the better search, filtering, and overall clarity. The whole redesign showed that taking time to research and plan actually works.</p>
-
-            <img src="solutions-workspace.jpg" alt="Solutions Workspace Resources Interface" class="project-image">
-            <p class="image-caption">Redesigned Resources interface with improved navigation and content organization</p>
-
-            <h3 style="color: #1a1a1a;">What I Learned</h3>
-            <p><span class="highlight">Strategy and design need to be in the room from the beginning.</span> You have to be willing to push back on the vision but also flexible when things change. That balance takes practice.</p>
-        </section>
-
-        <section class="project-section">
-            <h2>Demo Signups: Unified Demo Management</h2>
-            <span class="role-badge">UI Design, Usability Testing, Dev Partnership</span>
-
-            <h3 style="color: #1a1a1a;">The Problem</h3>
-            <p>Sales Engineers had to jump around between different demo tools. They couldn't easily find demos, reuse them, or manage them. People were frustrated and wasting time.</p>
-
-            <h3 style="color: #1a1a1a;">What I Did</h3>
-            <p>I joined early and designed the UI. I tested it with Sales Engineers and Account Executives using unmoderated testing. This let me validate the design before we even shipped it.</p>
-
-            <h3 style="color: #1a1a1a;">What People Thought</h3>
-            <ul style="padding-left: 2rem; margin-bottom: 1.5rem;">
-                <li style="margin-bottom: 1rem;"><strong>Big improvement:</strong> Testers said it was way better than what we had before</li>
-                <li style="margin-bottom: 1rem;"><strong>Easy to use:</strong> People found the new demo creation flow intuitive. They liked having everything in one place</li>
-                <li><strong>Fits the product:</strong> Users said it looked and felt like the rest of Solutions Workspace</li>
-            </ul>
-
-            <img src="demo-signups-interface.png" alt="Demo Signups Interface" class="project-image">
-            <p class="image-caption">Demo Signups interface with unified demo management and creation flow</p>
-        </section>
-
-        <section class="project-section">
-            <h2>Solutions Workspace Reimagined: Research Leadership</h2>
-            <span class="role-badge">Research Strategy, User Insights, Cross-functional Synthesis</span>
-
-            <h3 style="color: #1a1a1a;">Why We Did This</h3>
-            <p>Leadership wanted to know how well Solutions Workspace was actually working and whether the team was ready for AI features. The insights would shape where we went next.</p>
-
-            <h3 style="color: #1a1a1a;">The Research</h3>
-            <p>I helped lead a big research study with the design team. We looked at it from multiple angles:</p>
-
-            <div class="challenge-box">
-                <div class="challenge-label">Scale & Scope</div>
-                <div class="challenge-text">
-                    32 Solutions Engineers surveyed on AI readiness and workspace effectiveness<br>
-                    179 Account Executives surveyed on usage patterns and tool preferences<br>
-                    9 strategic stakeholder interviews with leaders to align on vision and direction
-                </div>
-            </div>
-
-            <h3 style="color: #1a1a1a;">Key Findings That Shaped the Roadmap</h3>
-            <ul style="padding-left: 2rem; margin-bottom: 1.5rem;">
-                <li style="margin-bottom: 1rem;"><strong>Usage Concentration:</strong> AEs primarily concentrate in Value and Demos spaces—a clear signal for where to invest next</li>
-                <li style="margin-bottom: 1rem;"><strong>Discoverability Gap:</strong> The top AE challenge wasn't content—it was "I don't know where to start or what's available"</li>
-                <li style="margin-bottom: 1rem;"><strong>AI Readiness:</strong> AEs are ready for AI-driven automation to cut manual effort and reduce cognitive load</li>
-                <li><strong>Enablement Opportunity:</strong> Strong need for better onboarding and awareness to drive adoption of existing features</li>
-            </ul>
-
-            <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 2rem; margin: 2rem 0;">
-                <img src="research-findings-1.jpg" alt="Working Well - Research Insights" class="project-image" style="margin: 0;">
-                <img src="research-findings-2.jpg" alt="Needs Reconsideration - Research Insights" class="project-image" style="margin: 0;">
-            </div>
-            <p class="image-caption">Detailed UX insights from 211 participants revealing what's working and what needs reconsideration</p>
-        </section>
-
-        <section class="project-section">
-            <h2>Content Display Templates: Scalable Design System</h2>
-            <span class="role-badge">Problem Framing, UX Design, Figma Specification</span>
-
-            <h3 style="color: #1a1a1a;">The Problem</h3>
-            <div class="challenge-box">
-                <div class="challenge-label">Context</div>
-                <div class="challenge-text">Everything in Solutions Workspace looked the same. Assets, apps, demos, libraries. All displayed identically. This didn't work because different content types need different layouts. People got confused and had a hard time finding what they needed.</div>
-            </div>
-
-            <h3 style="color: #1a1a1a;">The Opportunity</h3>
-            <p>I wanted to create <span class="highlight">custom display templates for each content type</span>. Each template would be designed for how people actually use that kind of content. It would make the experience better and give the engineering team clear specs to work from.</p>
-
-            <h3 style="color: #1a1a1a;">How I Did It</h3>
-            <p>I handled the whole process:</p>
-
-            <div class="challenge-box">
-                <div class="challenge-label">Problem Framing</div>
-                <div class="challenge-text">Conducted interviews with content authors and engineers to understand each content type's unique requirements</div>
-            </div>
-
-            <div class="challenge-box">
-                <div class="challenge-label">User Research</div>
-                <div class="challenge-text">Observed how Sales Engineers and Account Executives interacted with different content types to inform template design</div>
-            </div>
-
-            <div class="challenge-box">
-                <div class="challenge-label">Design & Iteration</div>
-                <div class="challenge-text">Created tailored display templates for each content type, iterating with cross-functional stakeholders</div>
-            </div>
-
-            <div class="challenge-box">
-                <div class="challenge-label">Usability Testing</div>
-                <div class="challenge-text">Validated the new templates with SEs through moderated testing sessions</div>
-            </div>
-
-            <div class="challenge-box">
-                <div class="challenge-label">Figma Specification</div>
-                <div class="challenge-text">Built production-ready templates with detailed specifications for handoff to engineering</div>
-            </div>
-
-            <div class="challenge-box">
-                <div class="challenge-label">Component Library</div>
-                <div class="challenge-text">Delivered reusable Figma components (stepper, accordion, etc.) to scale template usage</div>
-            </div>
-
-            <h3 style="color: #1a1a1a;">The Results</h3>
-
-            <div class="challenge-box">
-                <div class="challenge-label">Multiple Content Types Shipped</div>
-                <div class="challenge-text">Delivered tailored templates for App, Demo Environment, and Asset content types</div>
-            </div>
-
-            <div class="challenge-box">
-                <div class="challenge-label">Extended Coverage</div>
-                <div class="challenge-text">Extended the templating system to Services content, proving scalability</div>
-            </div>
-
-            <div class="challenge-box">
-                <div class="challenge-label">Production Clarity</div>
-                <div class="challenge-text">Created Figma production template with detailed specs, reducing ambiguity and accelerating handoff</div>
-            </div>
-
-            <div class="challenge-box">
-                <div class="challenge-label">Reusable Components</div>
-                <div class="challenge-text">Built and delivered Figma components (stepper, accordion) that engineering could reuse across templates</div>
-            </div>
-
-            <div class="challenge-box">
-                <div class="challenge-label">User Feedback</div>
-                <div class="challenge-text">Testers found the new templates intuitive and appreciated the clear visual hierarchy for different content types</div>
-            </div>
-
-            <img src="content-display-templates.png" alt="Content Display Templates Design System" class="project-image">
-            <p class="image-caption">Content display templates showcasing tailored designs for different content types (Assets, Apps, Demo Environments, Services)</p>
-
-            <h3 style="color: #1a1a1a;">What I Learned</h3>
-            <p><span class="highlight">Handoff is a design challenge too.</span> Passing specs to engineering isn't where design ends. That's where a new challenge begins. You need to understand how the engineering team actually works. What constraints they face. How they'll use what you've built. That knowledge changes how you write specs, document things, and structure your components.</p>
-        </section>
-
-        <div style="margin-top: 6rem; padding-top: 4rem; border-top: 1px solid #E9D5FF; max-width: 900px; margin-left: auto; margin-right: auto; padding-left: 1.5rem; padding-right: 1.5rem; display: flex; justify-content: space-between; align-items: center; box-sizing: border-box;">
-            <a href="project-digital-publishing.html" class="back-link">← Previous Project</a>
-            <a href="project-phone-a-friend.html" class="back-link" style="text-align: right;">Next Project →</a>
+      <section class="cs-section reveal">
+        <span class="label">Resources V2</span>
+        <div class="cs-body">
+          <h2>Rebuilding navigation from scratch, mid-reorg.</h2>
+          <div class="cs-callout">There was no old version to reference, stakeholders wanted different things, and the launch window was tight.</div>
+          <p>Sales teams use Resources to find the materials they need, but the old experience was messy and hard to trust. With a fellow designer, I rebuilt the information architecture, navigation, and content templates from the ground up.</p>
+          <ul>
+            <li><strong>Strategy:</strong> A brand-new information architecture, with no blueprint to copy.</li>
+            <li><strong>Research:</strong> Interviews with sales engineers and account executives about what they actually need.</li>
+            <li><strong>Personas and flows:</strong> Built to guide every design decision.</li>
+            <li><strong>Prototyping:</strong> Wireframes and prototypes, tested and iterated.</li>
+            <li><strong>Shipping:</strong> Partnered with developers, ran a QA bug bash, and kept stakeholders in the loop.</li>
+          </ul>
+          <p>New features included filter pills, multi-select filters, expanding side panels, and "official" stamps so people knew which content to trust.</p>
+          <p>The result: Resources became the <strong>second most-clicked destination</strong> in Solutions Workspace.</p>
         </div>
+      </section>
+
+      <section class="cs-section reveal">
+        <span class="label">Demo Signups</span>
+        <div class="cs-body">
+          <h2>One place to find and manage demos.</h2>
+          <p>Sales engineers spent more time building and customizing demos than on any other task, and they had to jump between scattered tools to do it. I joined at planning, owned the UI redesign and new sign-up flow, and ran unmoderated testing with SEs and AEs before we shipped.</p>
+          <div class="cs-quote"><p>"A drastic improvement."</p><cite>Usability test participant</cite></div>
+          <div class="cs-quote"><p>"It's intuitive, so without spending too much time I can see that I can create the demo."</p><cite>Usability test participant</cite></div>
+          <figure class="cs-figure"><img src="demo-signups-interface.png" alt="Demo Signups interface" loading="lazy"><figcaption>The new Demo Signups flow brings demo discovery and creation into one place.</figcaption></figure>
+        </div>
+      </section>
+
+      <section class="cs-section reveal">
+        <span class="label">Research</span>
+        <div class="cs-body">
+          <h2>Is the platform working, and are sellers ready for AI?</h2>
+          <p>Leadership wanted to know how well Solutions Workspace was working and whether sellers were ready for AI. I contributed to a large study with the design team:</p>
+          <div class="cs-cards three">
+            <div class="cs-card tint"><h4>32</h4><p>Sales engineers</p></div>
+            <div class="cs-card tint"><h4>179</h4><p>Account executives</p></div>
+            <div class="cs-card tint"><h4>9</h4><p>Stakeholder interviews</p></div>
+          </div>
+          <h3>What we found</h3>
+          <ul>
+            <li><strong>Usage is concentrated:</strong> AEs spend most of their time in Value and Demos.</li>
+            <li><strong>Discoverability is the gap:</strong> The top AE pain point was "I don't know where to start or what's available."</li>
+            <li><strong>AEs are ready for AI:</strong> They want automation that cuts manual effort.</li>
+            <li><strong>Enablement matters:</strong> Better onboarding would drive adoption of features that already exist.</li>
+          </ul>
+          <div class="cs-figure-row"><figure class="cs-figure"><img src="research-findings-1.jpg" alt="Research insights: what's working well" loading="lazy"></figure><figure class="cs-figure"><img src="research-findings-2.jpg" alt="Research insights: what needs reconsideration" loading="lazy"></figure></div>
+        </div>
+      </section>
+
+      <section class="cs-section reveal">
+        <span class="label">Content templates</span>
+        <div class="cs-body">
+          <h2>Not every piece of content should look the same.</h2>
+          <p>Apps, demos, and assets all used the same layout, which made things harder to find and use. I led the problem framing and designed a template for each content type.</p>
+          <ul>
+            <li>Interviewed content authors and tested wireframes with sales engineers.</li>
+            <li>Ran a FigJam AI workshop and led enablement sessions with the content team.</li>
+            <li>Shipped templates for <strong>App, Demo Environment, and Asset</strong>, then extended them to <strong>Services</strong>.</li>
+            <li>Built a spec'd Figma production template and reusable components, like a stepper and an accordion.</li>
+            <li>Trained a non-design team to use Figma so they could keep the system going.</li>
+          </ul>
+          <figure class="cs-figure"><img src="content-display-templates.png" alt="Content display templates for different content types" loading="lazy"><figcaption>Tailored templates for each content type.</figcaption></figure>
+        </div>
+      </section>
+
+      <div class="cs-lesson reveal">
+        <span class="label">What I learned</span>
+        <p>Handoff is a design problem too.</p><p>Strategy and design need to be in the room from the beginning. And handoff isn't where design ends. Sit with the receiving team until the system works for how they operate.</p>
+      </div>
+
+
+      <nav class="cs-pager reveal" aria-label="More projects">
+        <a href="project-phone-a-friend.html" class="cs-pager-card prev">
+          <div class="media"><img src="img/paf.jpg" alt="" loading="lazy"></div>
+          <span class="label"><span class="num">←</span> Previous project</span>
+          <h3>An AI agent that finds the rep who already won your deal</h3>
+        </a>
+        <a href="project-sales-planning.html" class="cs-pager-card next">
+          <div class="media"><img src="img/sp.jpg" alt="" loading="lazy"></div>
+          <span class="label">Next project <span class="num">→</span></span>
+          <h3>Research that reshaped a sales planning roadmap</h3>
+        </a>
+      </nav>
     </div>
+  </main>
 
-    <!-- Footer -->
-    <footer class="footer">
-        <div class="footer-content">
-            <p>&copy; 2026 Keith Mistler. All rights reserved.</p>
-            <div class="footer-links">
-                <a href="index.html#work">Work</a>
-                <a href="index.html#about">About</a>
-                <a href="index.html#contact">Contact</a>
-            </div>
-        </div>
-    </footer>
+  <footer class="contact" id="contact">
+    <div class="wrap">
+      <span class="label">Contact</span>
+      <h2>Let's make something <em>people love</em> to use.</h2>
+      <div class="contact-links">
+        <a href="mailto:kmistler@gmail.com" class="btn btn-primary">kmistler@gmail.com <span class="arrow">→</span></a>
+        <a href="https://www.linkedin.com/in/kmarchmistler" target="_blank" rel="noopener" class="btn btn-ghost">LinkedIn <span class="arrow">↗</span></a>
+      </div>
+      <div class="footer">
+        <span>© 2026 Keith Mistler</span>
+        <a href="index.html">Back to home ↑</a>
+      </div>
+    </div>
+  </footer>
 
-    <script>
-        const hamburger = document.getElementById('hamburger');
-        const navMenu = document.getElementById('nav-menu');
-        const navLinks = document.querySelectorAll('.nav-link');
-
-        hamburger.addEventListener('click', () => {
-            hamburger.classList.toggle('active');
-            navMenu.classList.toggle('active');
-        });
-
-        navLinks.forEach(link => {
-            link.addEventListener('click', () => {
-                hamburger.classList.remove('active');
-                navMenu.classList.remove('active');
-            });
-        });
-
-        document.addEventListener('click', (e) => {
-            if (!e.target.closest('.navbar')) {
-                hamburger.classList.remove('active');
-                navMenu.classList.remove('active');
-            }
-        });
-    </script>
+  <script>
+    const nav = document.getElementById('nav');
+    const onScroll = () => nav.classList.toggle('scrolled', window.scrollY > 8);
+    window.addEventListener('scroll', onScroll, { passive: true });
+    onScroll();
+    const btn = document.getElementById('menuBtn');
+    const links = document.getElementById('navLinks');
+    btn.addEventListener('click', () => {
+      const open = btn.getAttribute('aria-expanded') === 'true';
+      btn.setAttribute('aria-expanded', String(!open));
+      links.classList.toggle('open', !open);
+    });
+    links.querySelectorAll('a').forEach(a => a.addEventListener('click', () => {
+      btn.setAttribute('aria-expanded', 'false');
+      links.classList.remove('open');
+    }));
+    const io = new IntersectionObserver(entries => {
+      entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('in'); io.unobserve(e.target); } });
+    }, { rootMargin: '0px 0px -8% 0px', threshold: 0.06 });
+    document.querySelectorAll('.reveal').forEach(el => io.observe(el));
+    document.addEventListener('keydown', e => {
+      if (e.target.closest('input, textarea') || e.metaKey || e.ctrlKey || e.altKey) return;
+      if (e.key === 'ArrowLeft') location.href = 'project-phone-a-friend.html';
+      if (e.key === 'ArrowRight') location.href = 'project-sales-planning.html';
+    });
+  </script>
 </body>
 </html>
