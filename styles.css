@@ -197,6 +197,15 @@ a { color: inherit; text-decoration: none; }
 .skill .label { display: block; margin-bottom: 10px; }
 .skill p { font-size: 15px; color: var(--ink-2); line-height: 1.55; }
 
+/* Podcast card */
+.podcast { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1.4fr); gap: 40px; align-items: center; margin-top: 64px; padding: 32px; background: var(--plum-deep); color: var(--bg); border-radius: var(--radius); }
+.podcast .label { display: block; margin-bottom: 12px; color: #C9B6D6; }
+.podcast .label .num { color: #C9A9DD; }
+.podcast h3 { font-family: var(--display); font-size: clamp(22px, 2.4vw, 28px); font-weight: 600; line-height: 1.2; letter-spacing: -.01em; margin-bottom: 10px; }
+.podcast p { font-size: 15px; color: #DCD0E4; line-height: 1.55; }
+.podcast-player iframe { display: block; border: 0; border-radius: 12px; }
+@media (max-width: 960px) { .podcast { grid-template-columns: 1fr; gap: 20px; padding: 24px; margin-top: 48px; } }
+
 /* Play ------------------------------------------------------------------- */
 .play-grid { display: grid; grid-template-columns: 1.25fr 1fr 1fr; grid-template-rows: auto auto; gap: 16px; }
 .play-item { position: relative; border-radius: var(--radius); overflow: hidden; background: var(--plum-soft); margin: 0; }
