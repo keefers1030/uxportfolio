@@ -715,3 +715,18 @@ a { color: inherit; text-decoration: none; }
 .lb-next { right: 16px; top: 50%; margin-top: -22px; }
 .lb-btn[hidden] { display: none; }
 @media (max-width: 700px) { .lb { padding: 64px 12px; } .lb-prev, .lb-next { top: auto; bottom: 16px; margin: 0; } }
+
+/* Case study retro ------------------------------------------------------------ */
+.cs-retro { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 12px; margin-top: 20px; }
+.cs-retro > div { border-radius: 16px; padding: 20px 20px 18px; border: 1px solid var(--line); background: var(--bg-raised); border-top-width: 4px; }
+.cs-retro .good { border-top-color: var(--go); }
+.cs-retro .change { border-top-color: #D9A62E; }
+.cs-retro .learn { border-top-color: var(--plum); }
+.cs-retro h4 { font-family: var(--display); font-weight: 600; font-size: 18px; letter-spacing: -.01em; margin-bottom: 12px; }
+.cs-retro ul { list-style: none; margin: 0 !important; padding: 0 !important; display: flex; flex-direction: column; gap: 10px; }
+.cs-retro li { position: relative; padding-left: 18px; font-size: 15px; line-height: 1.5; color: var(--ink-2); margin: 0 !important; }
+.cs-retro li::before { content: ""; position: absolute; left: 2px; top: .6em; width: 7px; height: 7px; border-radius: 50%; background: currentColor; opacity: .35; }
+.cs-retro .good li::before { background: var(--go); opacity: 1; }
+.cs-retro .change li::before { background: #D9A62E; opacity: 1; }
+.cs-retro .learn li::before { background: var(--plum); opacity: 1; }
+@media (max-width: 900px) { .cs-retro { grid-template-columns: minmax(0, 1fr); } }
