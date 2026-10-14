@@ -161,10 +161,11 @@
     }, { rootMargin: '0px 0px -8% 0px', threshold: 0.06 });
     document.querySelectorAll('.reveal').forEach(el => io.observe(el));
     document.addEventListener('keydown', e => {
-      if (e.target.closest('input, textarea') || e.metaKey || e.ctrlKey || e.altKey) return;
+      if (e.target.closest('input, textarea') || e.metaKey || e.ctrlKey || e.altKey || document.querySelector('.lb:not([hidden])')) return;
       if (e.key === 'ArrowLeft') location.href = 'project-sales-planning.html';
       if (e.key === 'ArrowRight') location.href = 'project-digital-publishing.html';
     });
   </script>
+  <script src="lightbox.js"></script>
 </body>
 </html>

@@ -93,10 +93,71 @@
       </section>
 
       <section class="cs-section reveal">
+        <span class="label">The process</span>
+        <div class="cs-body">
+          <h2>Map it, wire it, test it, repeat.</h2>
+          <div class="cs-flow">
+            <div><span>01</span><b>Dialogue mapping</b><p>Every path a seller could take</p></div>
+            <div><span>02</span><b>Intent &amp; data</b><p>How the agent understands a request</p></div>
+            <div><span>03</span><b>Research</b><p>Sellers testing the prototype</p></div>
+            <div class="out"><span>04</span><b>Launch</b><p>V1 shipped in Slack</p></div>
+          </div>
+          <p class="cs-flow-note">↻ Findings from testing looped back into the dialogue map.</p>
+        </div>
+      </section>
+
+      <section class="cs-section reveal">
+        <span class="label">Dialogue mapping</span>
+        <div class="cs-body">
+          <h2>From open questions to a simple MVP.</h2>
+          <p>My first map covered three paths: peer support, customer references, and customer stories. Sticky notes held the hard questions, like what to track, which data to trust, and when the agent should ask a follow-up.</p>
+          <figure class="cs-figure full"><a href="img/paf-flow-explore.jpg"><img src="img/paf-flow-explore.jpg" alt="Exploratory dialogue flow with three paths (peer support, customer reference, customer stories) and yellow sticky notes listing open questions about tracking, data, and follow-ups." loading="lazy"></a><figcaption>First pass: three paths, with open questions on sticky notes. Click to enlarge.</figcaption></figure>
+          <p>Then we cut it down. In the MVP, the agent asks two questions (what kind of help, and which opportunity) and returns up to six matches.</p>
+          <figure class="cs-figure full"><a href="img/paf-flow-mvp.jpg"><img src="img/paf-flow-mvp.jpg" alt="MVP dialogue flow: the seller asks for help, the agent clarifies peer support, customer reference, or customer stories, asks which opportunity, then returns up to six matches. Starred steps are stored for reporting." loading="lazy"></a><figcaption>The MVP flow. Starred steps are stored for reporting. Click to enlarge.</figcaption></figure>
+        </div>
+      </section>
+
+      <section class="cs-section reveal">
+        <span class="label">Intent &amp; data</span>
+        <div class="cs-body">
+          <h2>Designing for how the agent thinks.</h2>
+          <div class="cs-split">
+            <div>
+              <p>A good conversation depends on what happens behind it. I worked with engineering across three layers:</p>
+              <div class="cs-layers">
+                <div><b>Conversational UI</b><p>Sellers type naturally in Slack. No forms, no menus.</p></div>
+                <div><b>Intent &amp; constraints</b><p>The agent works out what the seller wants and pulls out details like the account name. When it isn't sure, it asks: "Did you mean Acme Corp or Acme Holdings?"</p></div>
+                <div><b>CRM data</b><p>Those details map to real fields, like account, stage, and owner, so matches come from closed-won deals.</p></div>
+              </div>
+            </div>
+            <figure class="cs-figure"><a href="img/paf-nlp-layers.jpg"><img src="img/paf-nlp-layers.jpg" alt="Three-layer diagram: conversational UI with a Slack message, intent classification and entity extraction with a fallback for low confidence, and CRM data mapping to account, opportunity stage, and owner." loading="lazy"></a><figcaption>From a Slack message to CRM fields.</figcaption></figure>
+          </div>
+        </div>
+      </section>
+
+      <section class="cs-section reveal">
+        <span class="label">Research</span>
+        <div class="cs-body">
+          <h2>Watching sellers talk to it.</h2>
+          <p>I tested the prototype with sellers on UserTesting and tagged each moment as a pain point, suggestion, or like. A typical suggestion: let people share an opportunity link instead of typing its name.</p>
+          <figure class="cs-figure"><img src="img/paf-usertesting.jpg" alt="UserTesting session of the Phone a Friend prototype, with the transcript tagged as Pain point, Suggestion, Easy, and Like." loading="lazy"><figcaption>A test session with tagged transcript. Participant blurred for privacy.</figcaption></figure>
+        </div>
+      </section>
+
+      <section class="cs-section reveal">
         <span class="label">The outcome</span>
         <div class="cs-body">
           <h2>Launched company-wide.</h2>
           <p>V1 Peer Support launched to sellers across the company and was called <strong>"a huge win for our Sales teams"</strong> in Salesforce's internal storytelling channel. The Customer Reference flow is the next milestone.</p>
+          <h3>The numbers after launch</h3>
+          <div class="cs-metrics">
+            <div><b>1,765</b><span>sellers used it</span><em>31% adoption (1,765 of 5,757)</em></div>
+            <div><b>479</b><span>monthly active users</span><em>56% of weekly users net new</em></div>
+            <div><b>62%</b><span>average satisfaction in Slack</span><em>Some weeks hit 81–100%</em></div>
+            <div><b>~178 hrs</b><span>of seller time saved</span><em>2,138 deal contributions × 5 min each</em></div>
+            <div class="wide"><b>10–15%</b><span>uplift in pipeline generation and ACV</span></div>
+          </div>
+          <figure class="cs-figure cs-narrow"><img src="img/paf-final-convo.jpg" alt="The shipped Sales Agent in Slack: Keith asks for a similar closed-won opportunity for an automotive company, and the agent asks whether he wants a peer, a customer reference recording, or a customer success story." loading="lazy"><figcaption>The shipped conversation in Slack.</figcaption></figure>
           <p>This project also changed how I design. I went from designing tools <em>for</em> users to designing the interaction <em>between</em> a seller and an AI agent.</p>
         </div>
       </section>
@@ -158,10 +219,11 @@
     }, { rootMargin: '0px 0px -8% 0px', threshold: 0.06 });
     document.querySelectorAll('.reveal').forEach(el => io.observe(el));
     document.addEventListener('keydown', e => {
-      if (e.target.closest('input, textarea') || e.metaKey || e.ctrlKey || e.altKey) return;
+      if (e.target.closest('input, textarea') || e.metaKey || e.ctrlKey || e.altKey || document.querySelector('.lb:not([hidden])')) return;
       if (e.key === 'ArrowLeft') location.href = 'project-digital-publishing.html';
       if (e.key === 'ArrowRight') location.href = 'project-solutions-workspace.html';
     });
   </script>
+  <script src="lightbox.js"></script>
 </body>
 </html>
