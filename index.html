@@ -43,11 +43,31 @@
           </div>
         </div>
 
-        <div class="showcase" aria-label="Selected work">
-          <a href="project-phone-a-friend.html" class="tile"><img src="img/paf.jpg" alt="Phone a Friend AI agent in Slack"><span>AI agent design</span></a>
-          <a href="project-solutions-workspace.html" class="tile"><img src="img/sw.jpg" alt="Solutions Workspace redesign"><span>Enterprise platform</span></a>
-          <a href="project-sales-planning.html" class="tile"><img src="img/sp.jpg" alt="Sales planning research readout"><span>UX research</span></a>
+        <div class="agent" id="agent">
+          <div class="agent-glow" aria-hidden="true"></div>
+          <div class="agent-card">
+            <div class="agent-top">
+              <span class="agent-orb" aria-hidden="true"></span>
+              <div class="agent-id"><b>Ask about Keith</b><span>Portfolio agent</span></div>
+              <span class="agent-live"><i></i>Live</span>
+            </div>
+            <div class="agent-thread" id="agentThread" role="log" aria-live="off" aria-label="Conversation about Keith"></div>
+            <div class="agent-suggest" id="agentSuggest" aria-label="Suggested questions"></div>
+            <form class="agent-input" id="agentForm" autocomplete="off">
+              <label for="agentQ" class="sr-only">Ask a question about Keith</label>
+              <input id="agentQ" type="text" maxlength="140" placeholder="Ask anything about Keith…">
+              <button class="agent-send" type="submit" aria-label="Send question">↑</button>
+            </form>
+          </div>
         </div>
+      </div>
+      <div class="wrap hero-stats">
+          <div class="stats">
+            <div class="stat"><div class="stat-num">$110M<sup>+</sup></div><p>in closed deals my design work contributed to</p></div>
+            <div class="stat"><div class="stat-num">16.9K</div><p>users on the sales platform I helped redesign</p></div>
+            <div class="stat"><div class="stat-num">~2 hrs</div><p>saved per seller each week by an AI agent I designed</p></div>
+            <div class="stat"><div class="stat-num">1,000<sup>+</sup></div><p>students taught across a decade of design education</p></div>
+          </div>
       </div>
     </section>
 
@@ -78,7 +98,7 @@
 
           <a href="project-solutions-workspace.html" class="card reveal">
             <div class="card-media">
-              <img src="img/sw.jpg" alt="Solutions Workspace interface" loading="lazy">
+              <img src="img/sw-cover-2026.jpg" alt="Solutions Workspace interface" loading="lazy">
               <span class="go">→</span>
             </div>
             <div class="card-meta label"><span>Product Design</span><span>Enterprise</span></div>
@@ -129,12 +149,6 @@
           </div>
         </div>
 
-        <div class="stats reveal">
-          <div class="stat"><div class="stat-num">$110M<sup>+</sup></div><p>in closed deals my design work contributed to</p></div>
-          <div class="stat"><div class="stat-num">16.9K</div><p>users on the sales platform I helped redesign</p></div>
-          <div class="stat"><div class="stat-num">~2 hrs</div><p>saved per seller each week by an AI agent I designed</p></div>
-          <div class="stat"><div class="stat-num">1,000<sup>+</sup></div><p>students taught across a decade of design education</p></div>
-        </div>
 
         <div class="about-grid reveal">
           <div class="about-side">
@@ -264,6 +278,143 @@
       entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('in'); io.unobserve(e.target); } });
     }, { rootMargin: '0px 0px -8% 0px', threshold: 0.08 });
     document.querySelectorAll('.reveal').forEach(el => io.observe(el));
+    // ---------- Hero agent ----------
+    (() => {
+      const root = document.getElementById('agent'); if (!root) return;
+      const thread = document.getElementById('agentThread'), sug = document.getElementById('agentSuggest');
+      const form = document.getElementById('agentForm'), input = document.getElementById('agentQ');
+      const RM = matchMedia('(prefers-reduced-motion: reduce)').matches;
+      const K = [
+        { id: 'designer', q: 'What kind of designer is Keith?', step: 'Reading his case studies',
+          a: 'A senior UX designer who makes **enterprise tools and AI agents** feel simple. His work helped close **$110M+ in deals**.',
+          chip: ['See the work', '#work'], kw: ['designer', 'kind of', 'who is', 'about keith', 'summary', 'tell me about', 'what does he do', 'specialty', 'specialize'] },
+        { id: 'outside', q: 'What is he like outside of work?', step: 'Checking his off-hours',
+          a: 'An **artist** at heart. He paints, makes **cyanotypes**, and sings on stage.',
+          chip: ['Off the clock', '#play'], kw: ['outside', 'hobby', 'hobbies', 'fun', 'personal', 'free time', 'weekend', 'art', 'paint', 'cyanotype', 'sing', 'music', 'creative', 'artist', 'like as a person', 'personality'] },
+        { id: 'ai', q: 'Has he designed AI agents?', step: 'Opening Phone a Friend',
+          a: 'Yes. His Sales Agent matches sellers with peers who won similar deals, and saves them about **2 hours a week**.',
+          chip: ['Phone a Friend', 'project-phone-a-friend.html'], kw: ['ai', 'agent', 'agentforce', 'chatbot', 'bot', 'llm', 'phone a friend', 'conversation design', 'artificial'] },
+        { id: 'path', q: 'How did he get into UX?', step: 'Reading his story',
+          a: 'Through teaching. **20+ years** as an artist, a decade teaching design to **1,000+ students**, and an **MFA** from Boston University.',
+          chip: ['About Keith', '#about'], kw: ['get into', 'career', 'path', 'background', 'teach', 'teacher', 'education', 'school', 'mfa', 'degree', 'boston university', 'students', 'before ux', 'non-traditional'] },
+        { id: 'platform', q: 'Can he fix a messy platform?', step: 'Opening Solutions Workspace',
+          a: 'He rebuilt a library **16.9K people** use. It became the **#2** destination in the product.',
+          chip: ['Solutions Workspace', 'project-solutions-workspace.html'], kw: ['solutions workspace', 'platform', 'messy', 'navigation', 'information architecture', ' ia', 'enterprise', 'redesign', 'library', 'complex'] },
+        { id: 'care', q: 'What does he care about?', step: 'Looking beyond the resume',
+          a: 'Making complicated things clear, and **community**. He was Co-President of **Outforce New England**.',
+          chip: ['More about Keith', '#about'], kw: ['care', 'values', 'passion', 'community', 'outforce', 'volunteer', 'believe', 'motivat', 'why design'] },
+        { id: 'research', q: 'How does he use research?', step: 'Reading the planning study',
+          a: 'He led a **38-seller global study** that reshaped a sales roadmap, then turned it into a recurring program.',
+          chip: ['Sales planning research', 'project-sales-planning.html'], kw: ['research', 'study', 'interview', 'usability', 'testing', 'roadmap', 'sales planning', 'insight', 'user testing'] },
+        { id: 'roles', q: 'Is he open to new roles?', step: 'Checking availability',
+          a: 'Yes. He\'s in **Boston** and open to **senior UX** roles.',
+          chip: ['Get in touch', '#contact'], kw: ['open to', 'hire', 'hiring', 'role', 'job', 'available', 'availability', 'opportunit', 'full-time', 'full time', 'looking for work', 'position'] },
+        { id: 'contact', q: 'How can I reach him?', step: 'Finding his contact info',
+          a: 'Email **kmistler@gmail.com** or find him on **LinkedIn**.',
+          chip: ['Email Keith', 'mailto:kmistler@gmail.com'], kw: ['contact', 'email', 'reach', 'linkedin', 'talk to', 'call', 'message', 'get in touch', 'connect'] },
+        { id: 'location', q: 'Where is he based?', step: 'Checking location',
+          a: 'Boston, Massachusetts.',
+          chip: ['Get in touch', '#contact'], kw: ['where', 'based', 'located', 'location', 'live', 'boston', 'remote', 'city'] },
+        { id: 'tools', q: 'What tools does he use?', step: 'Checking his toolkit',
+          a: '**Figma**, **Claude Code** with the Figma MCP, and **HTML/CSS**. He prototypes with AI and builds with code.',
+          chip: ['Skills', '#about'], kw: ['tool', 'figma', 'skill', 'code', 'coding', 'html', 'css', 'claude', 'prototyp', 'build', 'stack', 'software'] },
+        { id: 'experience', q: 'How long was he at Salesforce?', step: 'Checking his experience',
+          a: '**5 years**, designing tools for the people who sell: enterprise platforms, agentic AI, and research.',
+          chip: ['See the work', '#work'], kw: ['salesforce', 'years', 'experience', 'how long', 'senior', 'previous', 'company', 'worked at'] },
+        { id: 'impact', q: 'What impact has his work had?', step: 'Checking the numbers',
+          a: '**$110M+** in deals, **16.9K** users on a platform he rebuilt, and **2 hours** a week saved per seller.',
+          chip: ['See the work', '#work'], kw: ['impact', 'result', 'metric', 'number', 'deals', 'revenue', 'success', 'achievement', 'proud'] },
+        { id: 'consult', q: 'Does he do freelance work?', step: 'Opening consulting',
+          a: 'Yes. A flat-fee **UX audit** or a **landing page redesign**, for small teams and founders.',
+          chip: ['Consulting', 'consulting.html'], kw: ['freelance', 'consult', 'contract', 'audit', 'landing page', 'price', 'rate', 'cost', 'side project', 'small business'] },
+        { id: 'wyndham', q: 'Has he worked on storytelling?', step: 'Opening the Wyndham story',
+          a: 'Yes. On a five-person team, he designed the **microsite and vision story** that helped win the **Wyndham** contract.',
+          chip: ['Wyndham', 'project-wyndham.html'], kw: ['wyndham', 'hotel', 'hospitality', 'story', 'storytelling', 'vision', 'microsite', 'pitch'] },
+        { id: 'classroom', q: 'What was his classroom like?', step: 'Opening the classroom story',
+          a: 'Like a **creative studio**. Students led real client projects, critiqued like pros, and mentored each other.',
+          chip: ['Digital publishing', 'project-digital-publishing.html'], kw: ['classroom', 'digital publishing', 'studio', 'mentor', 'leadership', 'lead a team', 'manage'] }
+      ];
+      const FALLBACK = { a: 'I don\'t know that one yet. Keith would love to answer it himself.', chip: ['Email Keith', 'mailto:kmistler@gmail.com'], step: 'Searching his portfolio' };
+      const AUTO = ['designer', 'outside', 'ai', 'path', 'roles'];
+      const byId = id => K.find(k => k.id === id);
+      const esc = t => t.replace(/[&<>"]/g, c => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;' }[c]));
+      const md = t => esc(t).replace(/\*\*(.+?)\*\*/g, '<strong>$1</strong>');
+      const wait = ms => new Promise(r => setTimeout(r, ms));
+      let token = 0, live = false, visible = true, asked = new Set();
+      new IntersectionObserver(es => es.forEach(e => visible = e.isIntersecting)).observe(root);
+      const gate = async () => { while (!visible || document.hidden) await wait(400); };
+      const scroll = () => { thread.scrollTop = thread.scrollHeight; };
+      const add = (cls, html) => { const d = document.createElement('div'); d.className = 'msg ' + cls; d.innerHTML = html; thread.appendChild(d); requestAnimationFrame(() => d.classList.add('on')); scroll(); return d; };
+
+      function match(text) {
+        const t = ' ' + text.toLowerCase().replace(/[^a-z0-9$#.\s-]/g, ' ') + ' ';
+        let best = null, score = 0;
+        for (const k of K) {
+          let sc = 0;
+          for (const w of k.kw) if (t.includes(w)) sc += w.length > 5 ? 2 : 1;
+          if (sc > score) { score = sc; best = k; }
+        }
+        return score ? best : null;
+      }
+      function renderSuggest() {
+        const pool = K.filter(k => !asked.has(k.id));
+        const pick = (pool.length >= 4 ? pool : K).slice(0, 4);
+        sug.innerHTML = '<span class="agent-try">Try asking</span>' + pick.map(k => `<button type="button" data-id="${k.id}">${esc(k.q)}</button>`).join('');
+      }
+      async function answer(k, q, tok, fast) {
+        add('user', esc(q)); asked.add(k.id || '');
+        await wait(fast ? 200 : 450); if (tok !== token) return;
+        const bot = add('bot', `<div class="steps"><div class="step"><span class="spin"></span>${esc(k.step)}</div></div><div class="msg-body"></div>`);
+        const step = bot.querySelector('.step'), body = bot.querySelector('.msg-body');
+        const finish = () => { step.classList.add('done'); body.innerHTML = md(k.a); if (!bot.querySelector('.agent-chip')) bot.insertAdjacentHTML('beforeend', `<a class="agent-chip" href="${k.chip[1]}">${esc(k.chip[0])} <span>→</span></a>`); scroll(); };
+        if (RM) { finish(); return; }
+        await wait(fast ? 450 : 750); if (tok !== token) return finish();
+        step.classList.add('done');
+        const words = k.a.split(' ');
+        for (let i = 1; i <= words.length; i++) {
+          if (tok !== token) return finish();
+          if (!fast) await gate();
+          let part = words.slice(0, i).join(' '); if ((part.match(/\*\*/g) || []).length % 2) part += '**'; body.innerHTML = md(part); scroll();
+          await wait(fast ? 28 : 45 + Math.random() * 35);
+        }
+        finish();
+      }
+      function goLive() {
+        if (live) return; live = true; token++;
+        input.value = ''; input.readOnly = false;
+        thread.setAttribute('aria-live', 'polite'); root.classList.add('is-live');
+      }
+      async function ask(k, q) {
+        goLive(); const tok = ++token;
+        await answer(k || FALLBACK, q, tok, true);
+        renderSuggest();
+      }
+      sug.addEventListener('click', e => { const b = e.target.closest('button[data-id]'); if (!b) return; const k = byId(b.dataset.id); ask(k, k.q); });
+      form.addEventListener('submit', e => {
+        e.preventDefault(); const q = input.value.trim(); if (!q) return;
+        goLive(); input.value = ''; ask(match(q), q);
+      });
+      ['focus', 'pointerdown', 'keydown'].forEach(ev => input.addEventListener(ev, () => { if (!live) goLive(); }));
+
+      add('bot', '<div class="msg-body">Hi, I\'m Keith\'s portfolio agent. Ask me about his work, or about him.</div>');
+      renderSuggest();
+      if (RM) return;
+
+      (async function autoplay() {
+        const tok = token; let i = 0;
+        input.readOnly = true;
+        await wait(1600);
+        while (tok === token) {
+          const k = byId(AUTO[i]); await gate(); if (tok !== token) return;
+          for (const ch of k.q) { if (tok !== token) return; input.value += ch; await wait(34 + Math.random() * 40); }
+          await wait(350); if (tok !== token) return; input.value = '';
+          await answer(k, k.q, tok, false); if (tok !== token) return;
+          renderSuggest();
+          while (thread.children.length > 7) thread.removeChild(thread.firstChild);
+          await wait(4200); i = (i + 1) % AUTO.length;
+        }
+      })();
+    })();
   </script>
 </body>
 </html>
