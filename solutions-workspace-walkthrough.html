@@ -1680,9 +1680,11 @@ body.notes .confirm { display: inline-block; }
   let bc; try { bc = new BroadcastChannel('sw-walkthrough'); } catch (e) { return; }
   const chs = [...document.querySelectorAll('.ch')];
   const idx = () => Math.max(0, chs.findIndex(c => c.classList.contains('on')));
-  const tell = () => bc.postMessage({ type: 'at', i: idx() });
+  const states = () => { const o = {}; document.querySelectorAll('.seg2[id]').forEach(g => { const b = g.querySelector('button[aria-pressed="true"]'); if (b) { const k = Object.keys(b.dataset)[0]; if (k) o[g.id] = b.dataset[k]; } }); const a = document.getElementById('annotBtn'); if (a) o.annotBtn = a.getAttribute('aria-pressed') === 'true' ? 'on' : 'off'; return o; };
+  const tell = () => bc.postMessage({ type: 'at', i: idx(), states: states() });
   const mo = new MutationObserver(tell);
   chs.forEach(c => mo.observe(c, { attributes: true, attributeFilter: ['class'] }));
+  new MutationObserver(tell).observe(document.body, { subtree: true, attributes: true, attributeFilter: ['aria-pressed'] });
   const jump = i => { const b = document.querySelector('#toc button[data-i="' + i + '"]'); if (b) b.click(); };
   const find = (ch, t) => {
     if (t.sel) return ch.querySelector(t.sel);
@@ -1700,7 +1702,7 @@ body.notes .confirm { display: inline-block; }
         el.scrollIntoView({ behavior: matchMedia('(prefers-reduced-motion: reduce)').matches ? 'auto' : 'smooth', block: 'center' });
         el.classList.add('remote-flash'); setTimeout(() => el.classList.remove('remote-flash'), 1600);
       }
-      if (t.click) { const c = ch.querySelector(t.click); if (c && c.getAttribute('aria-pressed') !== 'true') c.click(); }
+      if (t.click) { const c = ch.querySelector(t.click); if (c) { const on = c.getAttribute('aria-pressed') === 'true'; if (t.want ? (t.want === 'on') !== on : !on) c.click(); } }
     }, same ? 0 : 400);
   };
   bc.onmessage = e => {
