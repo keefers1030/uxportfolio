@@ -1,0 +1,113 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex, nofollow">
+<title>Walkthrough Presenter</title>
+<link rel="icon" type="image/svg+xml" href="favicon.svg">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Figtree:wght@400;600;700&family=JetBrains+Mono:wght@600&display=swap">
+<style>
+:root{--bg:#f7f5f8;--surface:#fff;--ink:#221c27;--muted:#6d6474;--line:#e3dde7;--plum:#6b3f8a;--plum-soft:#f1e9f6;--now:#fff6dc;--go:#2f7d4f;
+  --body:"Figtree",system-ui,-apple-system,"Segoe UI",sans-serif;--mono:"JetBrains Mono",ui-monospace,Menlo,monospace}
+@media (prefers-color-scheme:dark){:root{--bg:#17131a;--surface:#201b24;--ink:#efe9f2;--muted:#a69cad;--line:#352d3b;--plum:#c79ae6;--plum-soft:#2c2233;--now:#3a3020;--go:#6fcf97;color-scheme:dark}}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--ink);font-family:var(--body);font-size:16px;line-height:1.5;padding:20px max(16px,env(safe-area-inset-left,0px)) 48px}
+.wrap{max-width:1000px;margin:0 auto;display:grid;gap:16px}
+header{display:flex;flex-wrap:wrap;gap:12px;align-items:center;justify-content:space-between}
+h1{font-size:1.35rem;margin:0}
+.status{font-size:.85rem;color:var(--muted);display:flex;align-items:center;gap:8px}
+.dot{width:10px;height:10px;border-radius:50%;background:var(--muted)}
+.status.on .dot{background:var(--go)}
+.ctrl{display:flex;gap:8px}
+.ctrl button,.open{font:inherit;font-size:.9rem;padding:6px 12px;border-radius:6px;border:1px solid var(--line);background:var(--surface);color:var(--ink);cursor:pointer;text-decoration:none}
+.tbl{background:var(--surface);border:1px solid var(--line);border-radius:10px;overflow-x:auto}
+table{width:100%;border-collapse:collapse;min-width:560px}
+td{vertical-align:top;padding:14px 16px;border-bottom:1px solid var(--line)}
+tr:last-child td{border-bottom:0}
+tr.now td{background:var(--now)}
+td.k{width:150px}
+.jump{all:unset;cursor:pointer;display:block;border-radius:6px}
+.jump:focus-visible,.do:focus-visible{outline:2px solid var(--plum);outline-offset:3px}
+.key{display:inline-grid;place-items:center;min-width:2.1rem;height:2.1rem;padding:0 .4rem;border-radius:6px;background:var(--plum-soft);color:var(--plum);font-family:var(--mono);font-size:1.05rem}
+.jump:hover .key{background:var(--plum);color:var(--surface)}
+.name{display:block;font-weight:700;margin-top:6px}
+.min{display:block;color:var(--muted);font-size:.85rem}
+ul{margin:0;padding-left:1.1rem;display:grid;gap:6px}
+ul ul{margin-top:4px;gap:4px}
+li::marker{color:var(--plum)}
+b{color:var(--plum)}
+.do{font:inherit;color:inherit;text-align:left;background:none;border:0;padding:2px 0;cursor:pointer;display:inline-flex;flex-wrap:wrap;gap:4px 8px;align-items:baseline}
+.do .go{font-size:.75rem;font-weight:700;letter-spacing:.04em;text-transform:uppercase;color:var(--plum);border:1px solid var(--plum);border-radius:999px;padding:0 8px}
+.do:hover .go{background:var(--plum);color:var(--surface)}
+.do.done .go{border-color:var(--go);color:var(--go)}
+.note{background:var(--plum-soft);border-radius:10px;padding:12px 16px;margin:0}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <header>
+    <div>
+      <h1>Walkthrough presenter</h1>
+      <div class="status" id="status"><span class="dot"></span><span id="statusTxt">Waiting for the walkthrough tab</span></div>
+    </div>
+    <div class="ctrl">
+      <a class="open" href="solutions-workspace-walkthrough.html" target="sw-walkthrough">Open walkthrough</a>
+      <button id="prev" type="button">← Prev</button>
+      <button id="next" type="button">Next →</button>
+    </div>
+  </header>
+  <p class="note">Click a chapter number to jump the walkthrough there. Click a <b>Show</b> pill to scroll the walkthrough to that spot. Number and arrow keys work here too.</p>
+  <div class="tbl"><table><tbody>
+<tr data-ch="0"><td class="k"><button class="jump" data-ch="0" title="Jump the walkthrough here"><span class="key">0</span><span class="name">Overview</span><span class="min">0–2 min</span></button></td><td><ul><li><b>Click:</b> nothing</li><li><b>Say:</b> “I picked this because it&#x27;s closest to your world: a big library of layered data, people who need to trust it, and no clean starting point.”</li><li><b>Say:</b> “I was the product designer end to end, with another designer, a PO, a PM and five devs. About six months.”</li><li><b>Say:</b> “Please jump in anytime.”</li></ul></td></tr>
+<tr data-ch="1"><td class="k"><button class="jump" data-ch="1" title="Jump the walkthrough here"><span class="key">1</span><span class="name">The problem</span><span class="min">2–7 min</span></button></td><td><ul><li><button class="do" data-t="{&quot;sel&quot;: &quot;#ba&quot;, &quot;ch&quot;: 1}" title="Show this on the walkthrough"><b>Click:</b> drag the before/after slider<span class="go">Show</span></button><ul><li>“Sellers needed one photo for a demo tomorrow. It took nine steps. Step five was browsing every post by hand.”</li></ul></li><li><button class="do" data-t="{&quot;sel&quot;: &quot;#jSeg&quot;, &quot;click&quot;: &quot;#jSeg button[data-j=\&quot;fut\&quot;]&quot;, &quot;ch&quot;: 1}" title="Show this on the walkthrough"><b>Click:</b> flip the journey toggle to Future<span class="go">Show</span></button><ul><li>“Then they gave up and went to Google Drive.”</li><li>“It was hard because there was no past state, we were mid-reorg, content lived on two platforms, and the metadata was a mess.”</li></ul></li><li><button class="do" data-t="{&quot;find&quot;: &quot;Our problem statement.&quot;, &quot;ch&quot;: 1}" title="Show this on the walkthrough"><b>Scroll:</b> to the problem statement<span class="go">Show</span></button><ul><li>“We started with &#x27;fix Resources.&#x27; Research turned that into: what can we launch that&#x27;s most valuable to SEs without losing the long-term vision?”</li></ul></li></ul></td></tr>
+<tr data-ch="2"><td class="k"><button class="jump" data-ch="2" title="Jump the walkthrough here"><span class="key">2</span><span class="name">Vision &amp; strategy</span><span class="min">7–10 min</span></button></td><td><ul><li><button class="do" data-t="{&quot;sel&quot;: &quot;#auditBlock&quot;, &quot;ch&quot;: 2}" title="Show this on the walkthrough"><b>Scroll:</b> to the content audit<span class="go">Show</span></button><ul><li>“Before designing anything, we audited every field: 32 fields across 5 content types. Nine were shared, so those became one page shell.”</li></ul></li><li><button class="do" data-t="{&quot;find&quot;: &quot;Two-day design workshop&quot;, &quot;ch&quot;: 2}" title="Show this on the walkthrough"><b>Scroll:</b> to the workshop photo<span class="go">Show</span></button><ul><li>“We ran a north-star workshop with about 15 leaders, so they thought like users before arguing about priorities.”</li></ul></li></ul></td></tr>
+<tr data-ch="3"><td class="k"><button class="jump" data-ch="3" title="Jump the walkthrough here"><span class="key">3</span><span class="name">Personas</span><span class="min">10–11 min</span></button></td><td><ul><li><button class="do" data-t="{&quot;sel&quot;: &quot;#pSeg&quot;, &quot;ch&quot;: 3}" title="Show this on the walkthrough"><b>Point:</b> at Shruti<span class="go">Show</span></button><ul><li>“We built seven personas. The big shift was that the people keeping content current mattered as much as the sellers.”</li></ul></li></ul></td></tr>
+<tr data-ch="4"><td class="k"><button class="jump" data-ch="4" title="Jump the walkthrough here"><span class="key">4</span><span class="name">Flows &amp; wireframes</span><span class="min">11–14 min</span></button></td><td><ul><li><button class="do" data-t="{&quot;sel&quot;: &quot;#wba&quot;, &quot;ch&quot;: 4}" title="Show this on the walkthrough"><b>Click:</b> drag the wireframe slider<span class="go">Show</span></button><ul><li>“Resources didn&#x27;t exist yet, so I mapped the flows first, then built lo-fi wireframes from patterns already in the product.”</li></ul></li><li><button class="do" data-t="{&quot;find&quot;: &quot;What testing and review changed&quot;, &quot;ch&quot;: 4}" title="Show this on the walkthrough"><b>Scroll:</b> to the three &quot;What testing changed&quot; cards<span class="go">Show</span></button><ul><li>“We tested with SEs. It set the page order, changed how Recommended works so it filters too, and cut Favorites from the MVP.”</li></ul></li><li><button class="do" data-t="{&quot;find&quot;: &quot;Design within the system&quot;, &quot;ch&quot;: 4}" title="Show this on the walkthrough"><b>Scroll:</b> to &quot;Design within the system&quot;<span class="go">Show</span></button><ul><li>“We had six months and had to stay inside our design system. Where it fell short, I made new components like the accordion and gave them back to the system.”</li></ul></li><li><button class="do" data-t="{&quot;find&quot;: &quot;What lived outside the system&quot;, &quot;ch&quot;: 4}" title="Show this on the walkthrough"><b>Scroll:</b> to &quot;What got cut&quot;<span class="go">Show</span></button><ul><li>“Custom icons, a carousel and custom filters didn&#x27;t fit the timeline, so we cut them. The slots were already designed, so they can come back.”</li></ul></li></ul></td></tr>
+<tr data-ch="5"><td class="k"><button class="jump" data-ch="5" title="Jump the walkthrough here"><span class="key">5</span><span class="name">Design decisions</span><span class="min">14–19 min</span></button></td><td><ul><li><button class="do" data-t="{&quot;sel&quot;: &quot;#proto&quot;, &quot;ch&quot;: 5}" title="Show this on the walkthrough"><b>Click:</b> a filter in the recreation<span class="go">Show</span></button><ul><li>“My lead decision was to start from the deal, not the catalog. We looked at browsing by category and at search-first. Research showed SEs start from the opportunity their AE sends them.”</li></ul></li><li><button class="do" data-t="{&quot;sel&quot;: &quot;#chips&quot;, &quot;ch&quot;: 5}" title="Show this on the walkthrough"><b>Click:</b> remove a chip and watch the count change<span class="go">Show</span></button><ul><li>“Filters stay visible, every one is removable, and you always see &#x27;showing X of Y.&#x27; Recommended resets the moment you take control.”</li></ul></li><li><button class="do" data-t="{&quot;sel&quot;: &quot;#proto&quot;, &quot;click&quot;: &quot;#annotBtn&quot;, &quot;ch&quot;: 5}" title="Show this on the walkthrough"><b>Click:</b> turn on design notes<span class="go">Show</span></button><ul><li>“To decide what to surface and what to hide, I tiered the deal fields: always shown, shown on request, and shown when needed.”</li></ul></li></ul></td></tr>
+<tr data-ch="6"><td class="k"><button class="jump" data-ch="6" title="Jump the walkthrough here"><span class="key">6</span><span class="name">Prototype</span><span class="min">Skip unless asked</span></button></td><td><ul><li><b>Say:</b> “This is a clickable version of the final flow.”</li></ul></td></tr>
+<tr data-ch="7"><td class="k"><button class="jump" data-ch="7" title="Jump the walkthrough here"><span class="key">7</span><span class="name">Collaboration</span><span class="min">19–25 min</span></button></td><td><ul><li><button class="do" data-t="{&quot;sel&quot;: &quot;.rhythm&quot;, &quot;ch&quot;: 7}" title="Show this on the walkthrough"><b>Scroll:</b> to the swim lanes<span class="go">Show</span></button><ul><li>“I pulled PM and engineering in early for the audit, the workshop and scoping. I worked more independently on flows and templates.”</li></ul></li><li><b>Pause:</b> and tell the story<ul><li>“Our PO kept things conceptual. So we stopped asking open questions and brought two prototypes, a recommendation and a deadline: &#x27;We need a decision by tomorrow&#x27;s call.&#x27;”</li></ul></li><li><button class="do" data-t="{&quot;find&quot;: &quot;Scoping the MVP launch&quot;, &quot;ch&quot;: 7}" title="Show this on the walkthrough"><b>Scroll:</b> to the scoping board<span class="go">Show</span></button><ul><li>“We labeled every section Required, Optional or Not for first launch, based on time, budget and dev capacity.”</li></ul></li></ul></td></tr>
+<tr data-ch="8"><td class="k"><button class="jump" data-ch="8" title="Jump the walkthrough here"><span class="key">8</span><span class="name">Outcome</span><span class="min">25–27 min</span></button></td><td><ul><li><b>Click:</b> nothing<ul><li>“It went GA and became the #2 most-clicked destination, right behind Demos. The launch post got 243 reactions.”</li></ul></li><li><button class="do" data-t="{&quot;find&quot;: &quot;What I&#x27;d measure next&quot;, &quot;ch&quot;: 8}" title="Show this on the walkthrough"><b>Only if they push on data:</b> scroll to &quot;What I&#x27;d measure next&quot;<span class="go">Show</span></button><ul><li>“Click rank shows adoption, not success. Next I&#x27;d measure time to find, search success and trust.”</li></ul></li></ul></td></tr>
+<tr data-ch="9"><td class="k"><button class="jump" data-ch="9" title="Jump the walkthrough here"><span class="key">9</span><span class="name">Retro</span><span class="min">27–29 min</span></button></td><td><ul><li><b>Click:</b> nothing<ul><li>“My mistake was treating handoff as the finish line. The authors struggled with my template files, so I ran training until they could run it themselves.”</li><li>“I&#x27;d also get the Demos team on board earlier and push for clearer ownership.”</li></ul></li></ul></td></tr>
+<tr data-ch="5"><td class="k"><button class="jump" data-ch="5" title="Jump the walkthrough here"><span class="key">5</span><span class="name">Close</span><span class="min">29–30 min</span></button></td><td><ul><li><button class="do" data-t="{&quot;sel&quot;: &quot;#proto&quot;, &quot;ch&quot;: 5}" title="Show this on the walkthrough"><b>Click:</b> go back to the filter<span class="go">Show</span></button><ul><li>“Start from the deal becomes start from the project area. Filters become layer toggles. Official stamps become data confidence. I haven&#x27;t designed on a map yet, but these are the same decisions.”</li></ul></li></ul></td></tr>
+<tr><td class="k"><span class="key">?</span><span class="name">Ask them</span><span class="min">Pick one</span></td><td><ul><li>“Where do your users lose trust in the data today?”</li><li>“When design and engineering disagree on scope, who makes the call?”</li></ul></td></tr>
+  </tbody></table></div>
+  <p class="note"><b>If you blank:</b> press the number for wherever they want to go. The small tag next to each chapter title names the question it answers.</p>
+</div>
+<script>
+(() => {
+  let bc = null; try { bc = new BroadcastChannel('sw-walkthrough'); } catch (e) {}
+  let cur = 0, alive = 0;
+  const send = m => { if (bc) bc.postMessage(m); };
+  const st = document.getElementById('status'), stT = document.getElementById('statusTxt');
+  const mark = i => {
+    cur = i;
+    document.querySelectorAll('tr[data-ch]').forEach(r => r.classList.toggle('now', +r.dataset.ch === i));
+    const r = [...document.querySelectorAll('tr[data-ch]')].find(r => +r.dataset.ch === i);
+    if (r) r.scrollIntoView({ block: 'nearest', behavior: 'smooth' });
+  };
+  if (bc) bc.onmessage = e => {
+    const m = e.data || {};
+    if (m.type === 'at') { alive = Date.now(); st.classList.add('on'); stT.textContent = 'Connected · showing chapter ' + m.i; if (m.i !== cur) mark(m.i); }
+  };
+  setInterval(() => { send({ type: 'ping' }); if (Date.now() - alive > 4000) { st.classList.remove('on'); stT.textContent = 'Waiting for the walkthrough tab'; } }, 1500);
+  send({ type: 'ping' });
+  const go = i => { i = Math.max(0, Math.min(9, i)); send({ type: 'go', i }); mark(i); };
+  document.addEventListener('click', e => {
+    const j = e.target.closest('.jump'); if (j) { go(+j.dataset.ch); return; }
+    const d = e.target.closest('.do');
+    if (d) { const t = JSON.parse(d.dataset.t); send({ type: 'show', t }); mark(t.ch); d.classList.add('done'); }
+  });
+  document.getElementById('prev').onclick = () => go(cur - 1);
+  document.getElementById('next').onclick = () => go(cur + 1);
+  document.addEventListener('keydown', e => {
+    if (e.metaKey || e.ctrlKey || e.altKey) return;
+    if (/^[0-9]$/.test(e.key)) go(+e.key);
+    else if (e.key === 'ArrowRight') { e.preventDefault(); go(cur + 1); }
+    else if (e.key === 'ArrowLeft') { e.preventDefault(); go(cur - 1); }
+  });
+  mark(0);
+})();
+</script>
+</body>
+</html>
