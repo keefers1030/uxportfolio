@@ -90,32 +90,7 @@
         <div class="cs-body">
           <h2>Designing the conversation, not just the screens.</h2>
           <p>I joined mid-project. Before my first scoping call, I read the full business requirements doc so I could contribute right away. From there, I owned UX design and testing for the new skill.</p>
-          <div class="cs-cards">
-            <div class="cs-card"><span class="n">1</span><h4>Wrote the UX brief</h4><p>Co-authored the brief that defined the problem, the audience, and the open questions: opt-out flow, data reliability, feedback loops, and phasing.</p></div>
-            <div class="cs-card"><span class="n">2</span><h4>Mapped the dialogue</h4><p>Designed the conversation flows, so sellers could get from question to match in as few turns as possible.</p></div>
-            <div class="cs-card"><span class="n">3</span><h4>Pulled in experts</h4><p>Consulted Salesforce's agentic design experts to pressure-test patterns for human-agent interaction.</p></div>
-            <div class="cs-card"><span class="n">4</span><h4>Tested with sellers</h4><p>Ran feedback sessions with AEs across AMER, EMEA, and LATAM, from SMB to Strategic, and stayed through V1 testing.</p></div>
-          </div>
-          <h3>Three design principles</h3>
-          <div class="cs-cards three">
-            <div class="cs-card tint"><h4>Efficiency</h4><p>Get to a useful answer fast.</p></div>
-            <div class="cs-card tint"><h4>Accuracy</h4><p>Only show matches sellers can trust.</p></div>
-            <div class="cs-card tint"><h4>Clarity</h4><p>Make it obvious what the agent is doing.</p></div>
-          </div>
-        </div>
-      </section>
-
-      <section class="cs-section reveal">
-        <span class="label">The process</span>
-        <div class="cs-body">
-          <h2>Map it, wire it, test it, repeat.</h2>
-          <div class="cs-flow">
-            <div><span>01</span><b>Dialogue mapping</b><p>Every path a seller could take</p></div>
-            <div><span>02</span><b>Intent &amp; data</b><p>How the agent understands a request</p></div>
-            <div><span>03</span><b>Research</b><p>Sellers testing the prototype</p></div>
-            <div class="out"><span>04</span><b>Launch</b><p>V1 shipped in Slack</p></div>
-          </div>
-          <p class="cs-flow-note">↻ Findings from testing looped back into the dialogue map.</p>
+          <p>I co-authored the UX brief, designed the conversation flows, pressure-tested patterns with Salesforce's agentic design experts, and ran feedback sessions with AEs across AMER, EMEA, and LATAM, from SMB to Strategic. I stayed through V1 testing.</p>
         </div>
       </section>
 
@@ -123,28 +98,8 @@
         <span class="label">Dialogue mapping</span>
         <div class="cs-body">
           <h2>From open questions to a simple MVP.</h2>
-          <p>My first map covered three paths: peer support, customer references, and customer stories. Sticky notes held the hard questions, like what to track, which data to trust, and when the agent should ask a follow-up.</p>
-          <figure class="cs-figure full"><a href="img/paf-flow-explore.jpg"><img src="img/paf-flow-explore.jpg" alt="Exploratory dialogue flow with three paths (peer support, customer reference, customer stories) and yellow sticky notes listing open questions about tracking, data, and follow-ups." loading="lazy"></a><figcaption>First pass: three paths, with open questions on sticky notes. Click to enlarge.</figcaption></figure>
-          <p>Then we cut it down. In the MVP, the agent asks two questions (what kind of help, and which opportunity) and returns up to six matches.</p>
+          <p>I mapped every path first, with sticky notes holding the hard questions: what to track, which data to trust, and when the agent should ask a follow-up. Then we cut it down. In the MVP, the agent asks two questions (what kind of help, and which opportunity) and returns up to six matches.</p>
           <figure class="cs-figure full"><a href="img/paf-flow-mvp.jpg"><img src="img/paf-flow-mvp.jpg" alt="MVP dialogue flow: the seller asks for help, the agent clarifies peer support, customer reference, or customer stories, asks which opportunity, then returns up to six matches. Starred steps are stored for reporting." loading="lazy"></a><figcaption>The MVP flow. Starred steps are stored for reporting. Click to enlarge.</figcaption></figure>
-        </div>
-      </section>
-
-      <section class="cs-section reveal">
-        <span class="label">Intent &amp; data</span>
-        <div class="cs-body">
-          <h2>Designing for how the agent thinks.</h2>
-          <div class="cs-split">
-            <div>
-              <p>A good conversation depends on what happens behind it. I worked with engineering across three layers:</p>
-              <div class="cs-layers">
-                <div><b>Conversational UI</b><p>Sellers type naturally in Slack. No forms, no menus.</p></div>
-                <div><b>Intent &amp; constraints</b><p>The agent works out what the seller wants and pulls out details like the account name. When it isn't sure, it asks: "Did you mean Acme Corp or Acme Holdings?"</p></div>
-                <div><b>CRM data</b><p>Those details map to real fields, like account, stage, and owner, so matches come from closed-won deals.</p></div>
-              </div>
-            </div>
-            <figure class="cs-figure"><a href="img/paf-nlp-layers.jpg"><img src="img/paf-nlp-layers.jpg" alt="Three-layer diagram: conversational UI with a Slack message, intent classification and entity extraction with a fallback for low confidence, and CRM data mapping to account, opportunity stage, and owner." loading="lazy"></a><figcaption>From a Slack message to CRM fields.</figcaption></figure>
-          </div>
         </div>
       </section>
 
@@ -183,9 +138,7 @@
             <div class="good"><h4>What worked</h4><ul>
               <li>Reading the full BRD before my first call, so I could contribute right away</li>
               <li>Mapping every path first, then cutting the MVP down to two questions</li>
-              <li>Pressure-testing patterns with agentic design experts</li>
               <li>Hearing real seller language in testing, like asking to share an opportunity link</li>
-              <li>Three principles to check decisions against: efficiency, accuracy, clarity</li>
             </ul></div>
             <div class="change"><h4>What I'd change</h4><ul>
               <li>Lock down success metrics before launch, so time saved is measured one way</li>
@@ -208,6 +161,10 @@
         <p>The best AI products? You don't even think about the AI. It just works.</p><p>Good AI product design isn't about showing off the technology. It's about solving a real human problem in a way that feels natural.</p>
       </div>
 
+
+      <div class="cs-callout reveal">
+        To go more in depth on this project, <a href="phone-a-friend-walkthrough.html" style="color:inherit;text-decoration:underline;text-underline-offset:4px">click here <span class="arrow">→</span></a>
+      </div>
 
       <nav class="cs-pager reveal" aria-label="More projects">
         <a href="project-digital-publishing.html" class="cs-pager-card prev">
